@@ -35,15 +35,15 @@ const deckData = {
       title: "Report Overview",
       subtitle: "Current IT support status based on the latest update.",
       stats: [
-        { value: "3", label: "Pending Support Tasks", tone: "warning" },
-        { value: "8", label: "Completed Support Tasks", tone: "success" },
+        { value: "1", label: "Pending Support Task", tone: "warning" },
+        { value: "10", label: "Completed Support Tasks", tone: "success" },
         { value: "3", label: "Internet Updates", tone: "info" },
         { value: "8", label: "Printers Checked", tone: "neutral" },
         { value: "5", label: "Active IT Projects", tone: "purple" }
       ],
       highlights: [
-        "Ferdinand’s computer was upgraded using available spare hardware, tested successfully, and handed over.",
-        "The Fuji Xerox DocuCentre S2520 drum cartridge was replaced, with printing quality significantly improved.",
+        "The faulty CCTV behind Vince’s desk was replaced on 1 August 2026, and the flickering issue was resolved.",
+        "The new email signature setup has been completed for all MT staff.",
         "The U Mobile SIM card and WiFi 6 modem were received and tested at KK; KP installation scheduling is still being finalised.",
         "KP Unifi service has been restored, while the new fibre cable installation and rebate follow-up remain in progress."
       ]
@@ -55,36 +55,16 @@ const deckData = {
       subtitle: "Items that require follow-up action.",
       cards: [
         {
-          title: "CCTV at KK Office Showing Flickering Footage",
-          status: "Still In Progress",
-          tone: "warning",
-          details: [
-            "The coaxial cable port was straightened and cleaned, and the cable was re-stripped and reconnected.",
-            "A different CCTV was tested at the same location, confirming that the existing CCTV unit is faulty.",
-            "Global Surveillance was contacted regarding a replacement, with an estimated cost of RM150–RM200.",
-            "Follow-up is required to replace the CCTV. Target date: 11 August 2026."
-          ]
-        },
-        {
-          title: "New Signature for Every MT Staff",
-          status: "Still In Progress",
-          tone: "warning",
-          details: [
-            "The updated staff email signature was distributed for implementation.",
-            "Only the MT-KP-01 Profile on Sipa’s laptop remains incomplete.",
-            "Sipa is currently on leave, and access requires her password.",
-            "The signature will be completed when the laptop becomes accessible."
-          ]
-        },
-        {
           title: "Monitor Request & Recommendation – Fae",
-          status: "Pending Confirmation",
+          status: "Price Checking In Progress",
           tone: "warning",
           details: [
-            "Sending Fae’s existing monitor is the more cost-effective option at an estimated RM336, including professional packing and insured delivery.",
-            "Purchasing a new monitor would cost approximately RM1,288 or above.",
-            "Awaiting confirmation on whether Fae will travel to KK in August and can carry the monitor back.",
-            "If this is not possible, proceed with professional packing and delivery before the end of September."
+            "Ros confirmed that Fae’s planned trip to KK has been cancelled.",
+            "AirAsia allows 7kg cabin baggage at no additional charge only if the packed monitor fits the permitted cabin dimensions. If it must be checked in, the minimum domestic allowance is 10kg: RM89 during initial booking, RM97 after booking, RM70 through a kiosk, or RM110 for the first 20kg at the airport counter. AirAsia states that baggage prices may vary by transaction.",
+            "AirAsia’s domestic travel protection covers checked baggage and personal effects up to RM1,000, subject to a maximum of RM200 per item. The insurance premium is provided during booking. AirAsia Gadget Care is not suitable because its gadget definition only covers mobile phones, laptops, and tablets.",
+            "Malaysia Airlines allows one 7kg cabin bag at no additional charge if the packed monitor fits the cabin-size limit. Domestic Economy bookings generally include checked baggage allowance, but the allowance shown on the actual ticket must be verified before travel.",
+            "If the Malaysia Airlines free allowance is exceeded, the published domestic excess-baggage rate is USD15 per kg. MHinsure provides domestic luggage and personal-effects coverage of up to RM3,000, while the premium depends on the travel details selected during quotation.",
+            "The final comparison cannot be confirmed until the departure city, travel date, packed monitor dimensions, and the passenger’s existing baggage allowance are available."
           ]
         }
       ]
@@ -95,6 +75,27 @@ const deckData = {
       title: "Completed Support Tasks",
       subtitle: "Support items completed or resolved during this reporting period.",
       cards: [
+        {
+          title: "CCTV at KK Office Showing Flickering Footage",
+          status: "Task Completed / Billing Pending",
+          tone: "success",
+          details: [
+            "On 1 August 2026, the technician found that the coaxial and power cables had been stretched, placing excessive strain on the connections. Over time, the cables gradually deteriorated and caused the CCTV footage to flicker.",
+            "The technician re-stripped and reconnected the existing power and coaxial cables inside the conduit, but the footage continued to flicker.",
+            "The faulty CCTV unit was replaced with a brand-new unit. The cables were extended and reconnected to prevent further strain and reduce the risk of damage.",
+            "The CCTV angle was adjusted to match its previous position behind Vince’s desk.",
+            "The new CCTV unit is functioning properly with no flickering footage. The technician advised that the bill will be issued next week."
+          ]
+        },
+        {
+          title: "New Signature for Every MT Staff",
+          status: "Task Completed",
+          tone: "success",
+          details: [
+            "The new email signature setup has been completed.",
+            "All MT staff email signatures have now been updated."
+          ]
+        },
         {
           title: "Faulty UPS Replacement",
           status: "Task Completed",
@@ -212,12 +213,10 @@ const deckData = {
         },
         {
           title: "Starlink PH",
-          status: "Restored",
+          status: "Stable",
           tone: "success",
           details: [
-            "The Starlink system previously reset itself during a power-down at PH.",
-            "The modem/router was set up again and the internet service was restored.",
-            "The connection remains under normal operational monitoring."
+            "No major internet disturbance has been reported since the last HOD meeting."
           ]
         }
       ]
@@ -288,10 +287,9 @@ const deckData = {
       subtitle: "Follow-up actions for items that are pending, under monitoring, or require decision-making.",
       actions: [
         { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
-        { title: "Complete the email signature setup on Sipa’s laptop", owner: "Eizzat", due: "When laptop access is available", status: "In Progress" },
-        { title: "Follow up with Global Surveillance and replace the faulty KK CCTV", owner: "Eizzat", due: "11 August 2026", status: "In Progress" },
+        { title: "Follow up and obtain the bill for the completed KK CCTV replacement", owner: "Eizzat", due: "Next week", status: "Pending Billing" },
         { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
-        { title: "Obtain Fae’s confirmation on monitor collection or delivery", owner: "Adly", due: "Before end of September", status: "Pending Confirmation" },
+        { title: "Confirm Fae’s route, date, packed monitor dimensions, and baggage allowance before obtaining final AirAsia and Malaysia Airlines quotations", owner: "Adly", due: "Before end of September", status: "Price Checking" },
         { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
         { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
         { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
