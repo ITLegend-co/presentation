@@ -56,15 +56,14 @@ const deckData = {
       cards: [
         {
           title: "Monitor Request & Recommendation – Fae",
-          status: "Price Checking In Progress",
+          status: "Pending Confirmation",
           tone: "warning",
           details: [
+            "Sending Fae’s existing monitor is the more cost-effective option at an estimated RM336, including professional packing and insured delivery.",
+            "Purchasing a new monitor would cost approximately RM1,288 or above.",
+            "Awaiting confirmation on whether Fae will travel to KK in August and can carry the monitor back.",
             "Ros confirmed that Fae’s planned trip to KK has been cancelled.",
-            "AirAsia allows 7kg cabin baggage at no additional charge only if the packed monitor fits the permitted cabin dimensions. If it must be checked in, the minimum domestic allowance is 10kg: RM89 during initial booking, RM97 after booking, RM70 through a kiosk, or RM110 for the first 20kg at the airport counter. AirAsia states that baggage prices may vary by transaction.",
-            "AirAsia’s domestic travel protection covers checked baggage and personal effects up to RM1,000, subject to a maximum of RM200 per item. The insurance premium is provided during booking. AirAsia Gadget Care is not suitable because its gadget definition only covers mobile phones, laptops, and tablets.",
-            "Malaysia Airlines allows one 7kg cabin bag at no additional charge if the packed monitor fits the cabin-size limit. Domestic Economy bookings generally include checked baggage allowance, but the allowance shown on the actual ticket must be verified before travel.",
-            "If the Malaysia Airlines free allowance is exceeded, the published domestic excess-baggage rate is USD15 per kg. MHinsure provides domestic luggage and personal-effects coverage of up to RM3,000, while the premium depends on the travel details selected during quotation.",
-            "The final comparison cannot be confirmed until the departure city, travel date, packed monitor dimensions, and the passenger’s existing baggage allowance are available."
+            "Will still look for baggage price for AirAsia & MAS"
           ]
         }
       ]
