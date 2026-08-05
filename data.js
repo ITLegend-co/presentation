@@ -17,7 +17,7 @@ const deckData = {
   title: "IT Update & Progress",
   subtitle: "Support update, completed tasks, internet status, printer patrol, and active IT projects.",
   preparedBy: "Prepared by: IT Legend",
-  reportDate: "Report Date: 5 August 2026",
+  reportDate: "Report Date: 6 August 2026",
   company: "Mountain Torq Sdn. Bhd.",
   slides: [
     {
@@ -59,7 +59,11 @@ const deckData = {
           status: "Price Checking In Progress",
           tone: "warning",
           details: [
-            "Ros confirmed that Fae’s planned trip to KK has been cancelled.",
+            "Sending Fae’s existing monitor remains the more cost-effective option. Professional packing and insured delivery were estimated at RM336, compared with approximately RM1,288 or more to purchase a new monitor.",
+            "The original plan was to confirm whether Fae would travel to KK in August and could carry the monitor back personally.",
+            "Ros has since confirmed that Fae’s planned trip to KK has been cancelled.",
+            "The next step is to compare AirAsia and Malaysia Airlines charges for transporting the packed monitor as a 7kg item, including suitable insurance coverage.",
+            "If airline transport is not practical or cost-effective, proceed with professional packing and insured delivery before the end of September.",
             "AirAsia permits two cabin-baggage pieces with a combined maximum weight of 7kg. The main cabin bag must not exceed 56cm × 36cm × 23cm, and the smaller personal item must not exceed 40cm × 30cm × 10cm. The packed monitor can only be carried in the cabin if it meets these limits.",
             "If the packed monitor does not meet AirAsia’s cabin limits, checked baggage must be purchased. The actual checked-baggage price depends on the route, travel date, booking stage, and availability, so the final price must be checked using the actual booking details.",
             "AirAsia’s domestic Travel Comfort protection covers loss or damage to checked baggage and personal effects up to RM1,000, subject to a maximum of RM200 per item.",
