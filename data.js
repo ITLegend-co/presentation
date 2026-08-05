@@ -56,14 +56,11 @@ const deckData = {
       cards: [
         {
           title: "Monitor Request & Recommendation – Fae",
-          status: "Pending Confirmation",
+          status: "Still In Progress",
           tone: "warning",
           details: [
-            "Sending Fae’s existing monitor is the more cost-effective option at an estimated RM336, including professional packing and insured delivery.",
-            "Purchasing a new monitor would cost approximately RM1,288 or above.",
-            "Awaiting confirmation on whether Fae will travel to KK in August and can carry the monitor back.",
-            "Ros confirmed that Fae’s planned trip to KK has been cancelled.",
-            "Will still look for baggage price for AirAsia & MAS"
+            "Ros confirmed that Fae’s trip to KK has been cancelled.",
+            "Continue checking AirAsia and Malaysia Airlines luggage charges for transporting a 7 kg monitor, including insurance coverage."
           ]
         }
       ]
@@ -76,14 +73,17 @@ const deckData = {
       cards: [
         {
           title: "CCTV at KK Office Showing Flickering Footage",
-          status: "Task Completed / Billing Pending",
+          status: "Task Completed",
           tone: "success",
           details: [
-            "On 1 August 2026, the technician found that the coaxial and power cables had been stretched, placing excessive strain on the connections. Over time, the cables gradually deteriorated and caused the CCTV footage to flicker.",
-            "The technician re-stripped and reconnected the existing power and coaxial cables inside the conduit, but the footage continued to flicker.",
-            "The faulty CCTV unit was replaced with a brand-new unit. The cables were extended and reconnected to prevent further strain and reduce the risk of damage.",
+            "Date: 1 August 2026",
+            "Findings: The technician found that the coaxial and power cables had been stretched, placing excessive strain on the connections. Over time, this caused the cables to gradually deteriorate, resulting in the flickering footage.",
+            "Action Taken: The technician re-stripped and reconnected the existing power and coaxial cables inside the conduit. However, the CCTV footage continued to flicker.",
+            "The faulty CCTV unit was replaced with a brand-new unit.",
+            "The cables were extended and reconnected to prevent further strain and reduce the risk of damage.",
             "The CCTV angle was adjusted to match its previous position behind Vince’s desk.",
-            "The new CCTV unit is functioning properly with no flickering footage. The technician advised that the bill will be issued next week."
+            "Result: The new CCTV unit is functioning properly, with no flickering footage. The power and coaxial cables have also been extended to prevent excessive strain and future damage.",
+            "Latest Update: The technician advised that the bill will be issued next week."
           ]
         },
         {
@@ -215,7 +215,7 @@ const deckData = {
           status: "Stable",
           tone: "success",
           details: [
-            "No major internet disturbance has been reported since the last HOD meeting."
+            "No major internet disturbance has been reported since the previous HOD meeting."
           ]
         }
       ]
@@ -288,7 +288,7 @@ const deckData = {
         { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
         { title: "Follow up and obtain the bill for the completed KK CCTV replacement", owner: "Eizzat", due: "Next week", status: "Pending Billing" },
         { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
-        { title: "Confirm Fae’s route, date, packed monitor dimensions, and baggage allowance before obtaining final AirAsia and Malaysia Airlines quotations", owner: "Adly", due: "Before end of September", status: "Price Checking" },
+        { title: "Check AirAsia and Malaysia Airlines luggage charges for transporting Fae’s 7 kg monitor, including insurance coverage", owner: "Adly", due: "Before end of September", status: "Still In Progress" },
         { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
         { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
         { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
