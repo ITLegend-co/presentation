@@ -17,7 +17,7 @@ const deckData = {
   title: "IT Update & Progress",
   subtitle: "Support update, completed tasks, internet status, printer patrol, and active IT projects.",
   preparedBy: "Prepared by: IT Legend",
-  reportDate: "Report Date: 3 July 2026",
+  reportDate: "Report Date: 5 August 2026",
   company: "Mountain Torq Sdn. Bhd.",
   slides: [
     {
@@ -35,33 +35,56 @@ const deckData = {
       title: "Report Overview",
       subtitle: "Current IT support status based on the latest update.",
       stats: [
-        { value: "1", label: "Pending Support Task", tone: "warning" },
-        { value: "4", label: "Completed Support Tasks", tone: "success" },
+        { value: "3", label: "Pending Support Tasks", tone: "warning" },
+        { value: "8", label: "Completed Support Tasks", tone: "success" },
         { value: "3", label: "Internet Updates", tone: "info" },
         { value: "8", label: "Printers Checked", tone: "neutral" },
         { value: "5", label: "Active IT Projects", tone: "purple" }
       ],
       highlights: [
-        "Laminator machine requires further investigation due to smoke and burn marks.",
-        "PH laptop preparation, phishing email verification, RSVN mobile data issue, and KP UPS issue have been completed.",
-        "Microsoft 365 migration to mountaintorq.com was completed and is currently under monitoring.",
-        "CCTV for PH is currently being tested at KP for performance and environment suitability."
+        "Ferdinand’s computer was upgraded using available spare hardware, tested successfully, and handed over.",
+        "The Fuji Xerox DocuCentre S2520 drum cartridge was replaced, with printing quality significantly improved.",
+        "The U Mobile SIM card and WiFi 6 modem were received and tested at KK; KP installation scheduling is still being finalised.",
+        "KP Unifi service has been restored, while the new fibre cable installation and rebate follow-up remain in progress."
       ]
     },
     {
       type: "cards",
       label: "Pending",
-      title: "Pending Support Task",
-      subtitle: "Item that requires follow-up action.",
+      title: "Pending Support Tasks",
+      subtitle: "Items that require follow-up action.",
       cards: [
         {
-          title: "Laminator Machine Producing Smoke",
-          status: "Pending Investigation",
+          title: "CCTV at KK Office Showing Flickering Footage",
+          status: "Still In Progress",
           tone: "warning",
           details: [
-            "Pamella reported that the laminator machine produced smoke during use.",
-            "After opening the panel, burn marks were noticed on the heated rod.",
-            "Further investigation is required to confirm the cause and decide whether repair or replacement is needed."
+            "The coaxial cable port was straightened and cleaned, and the cable was re-stripped and reconnected.",
+            "A different CCTV was tested at the same location, confirming that the existing CCTV unit is faulty.",
+            "Global Surveillance was contacted regarding a replacement, with an estimated cost of RM150–RM200.",
+            "Follow-up is required to replace the CCTV. Target date: 11 August 2026."
+          ]
+        },
+        {
+          title: "New Signature for Every MT Staff",
+          status: "Still In Progress",
+          tone: "warning",
+          details: [
+            "The updated staff email signature was distributed for implementation.",
+            "Only the MT-KP-01 Profile on Sipa’s laptop remains incomplete.",
+            "Sipa is currently on leave, and access requires her password.",
+            "The signature will be completed when the laptop becomes accessible."
+          ]
+        },
+        {
+          title: "Monitor Request & Recommendation – Fae",
+          status: "Pending Confirmation",
+          tone: "warning",
+          details: [
+            "Sending Fae’s existing monitor is the more cost-effective option at an estimated RM336, including professional packing and insured delivery.",
+            "Purchasing a new monitor would cost approximately RM1,288 or above.",
+            "Awaiting confirmation on whether Fae will travel to KK in August and can carry the monitor back.",
+            "If this is not possible, proceed with professional packing and delivery before the end of September."
           ]
         }
       ]
@@ -73,44 +96,14 @@ const deckData = {
       subtitle: "Support items completed or resolved during this reporting period.",
       cards: [
         {
-          title: "Used Laptop for PH",
-          status: "Completed / Ready to Deploy",
+          title: "Faulty UPS Replacement",
+          status: "Task Completed",
           tone: "success",
           details: [
-            "During the IT meeting, it was proposed to send a laptop to PH for Housekeeping use.",
-            "Vince confirmed that the power supply at PH is suitable for laptop usage.",
-            "The laptop has been formatted and installed with necessary software including Office apps, Adobe, Chrome, and Outlook.",
-            "Plan is to send the laptop up when Vince goes to PH."
-          ]
-        },
-        {
-          title: "Ros Received Phishing Email",
-          status: "Verified as Fraudulent",
-          tone: "success",
-          details: [
-            "Ros received a phishing email on 20 June 2026 claiming to be from webmail.",
-            "The email requested confirmation to continue using the service and asked for user information.",
-            "Eizzat contacted IPServerOne to verify the email.",
-            "IPServerOne confirmed that the email was fraudulent."
-          ]
-        },
-        {
-          title: "RSVN Company Phone Internet Issue",
-          status: "Resolved",
-          tone: "success",
-          details: [
-            "Carmella reported that the RSVN company phone was unable to receive internet using mobile data.",
-            "After manually configuring the APN, the mobile data connection was restored."
-          ]
-        },
-        {
-          title: "Printer Ricoh MP C3004 Emitting Noise",
-          status: "Resolved",
-          tone: "success",
-          details: [
-            "The Printer at the main office area was emitting loud sound like an ice cream machine maker at Ai Cha.",
-            "Contacted Capital to resolved the issue and the next day, they came and replace the toner drum.",
-            "Printer is no longer sound like an ice cream machine."
+            "Theresia reported that her UPS was beeping continuously.",
+            "Troubleshooting identified a faulty transformer inside the UPS.",
+            "The original battery was installed in a spare UPS and tested successfully.",
+            "The replacement UPS and reused battery were confirmed to be functioning normally."
           ]
         },
         {
@@ -118,10 +111,76 @@ const deckData = {
           status: "Resolved / Installed",
           tone: "success",
           details: [
-            "KP reported that the UPS for the laser printer had an issue turning on.",
-            "Investigation found the issue was related to the power button.",
-            "The power button was modified using a light switch and tested successfully.",
-            "KP has received the UPS from Eizzat and it has been installed with no issue so far."
+            "The battery retained a 12V charge but could not be switched on normally.",
+            "The push button was confirmed faulty, and bypass testing allowed the battery to turn on.",
+            "A used light switch was installed as a replacement and the wiring was soldered securely.",
+            "The unit was reassembled, tested, delivered to KP, and installed without further issues."
+          ]
+        },
+        {
+          title: "Formatting of Ros’s MYOB Computer",
+          status: "Task Completed",
+          tone: "success",
+          details: [
+            "The computer formatting process was completed successfully.",
+            "Previous data was checked and confirmed to be removed from the computer.",
+            "The computer was unplugged and stored in the Level 2 storeroom.",
+            "Its accessories were stored in the IT cabinet."
+          ]
+        },
+        {
+          title: "Canon ImageCLASS MF3010 Printer Setup",
+          status: "Task Completed",
+          tone: "success",
+          details: [
+            "The Single USB2.0 Port MFP and Storage Server was set up for the printer.",
+            "The required MFP and printer drivers were installed on Ros’s and Aron’s laptops.",
+            "The printer connection was configured on both laptops.",
+            "Printing was tested successfully from both laptops."
+          ]
+        },
+        {
+          title: "Computer Upgrade for Ferdinand",
+          status: "Completed / Handed Over",
+          tone: "success",
+          details: [
+            "The old Intel Pentium platform was replaced using available spare hardware: Intel Core i5-7400, H110M-D motherboard, 8GB DDR4 RAM, and a 600W power supply.",
+            "The original SSD and HDD were reused after the required data transfer.",
+            "Windows 10 Home and the necessary software were installed.",
+            "A stress test was completed with a recorded peak temperature of 76°C and no premature shutdown. The computer was handed over to Ferdinand."
+          ]
+        },
+        {
+          title: "Fuji Xerox DocuCentre S2520 Servicing",
+          status: "Completed / Monitoring",
+          tone: "success",
+          details: [
+            "The printer displayed a drum end-of-life warning and produced lines or toner spots on printed pages.",
+            "Capital’s technician cleaned the toner compartment and performed a test print.",
+            "The drum cartridge was replaced after the marks remained visible.",
+            "The lines and toner spots were significantly reduced. Several additional print cycles were advised for the remaining marks to clear."
+          ]
+        },
+        {
+          title: "Samsung SCX-4251F Printer Disposal",
+          status: "Approved for Disposal",
+          tone: "success",
+          details: [
+            "Approval was requested to dispose of the obsolete Samsung SCX-4251F printer.",
+            "The original toner cartridge is no longer produced or officially supported.",
+            "The printer had remained unused at the KK office for a long period.",
+            "Mr. Wilfred approved the printer for disposal."
+          ]
+        },
+        {
+          title: "Laminator Machine Producing Smoke",
+          status: "Completed / Monitor During Use",
+          tone: "success",
+          details: [
+            "Further inspection found burned plastic residue on the heated rod.",
+            "The residue was cleaned from the heated area.",
+            "The laminator was tested for approximately three minutes without further smoke.",
+            "The task was completed, with continued monitoring recommended during use."
           ]
         }
       ]
@@ -142,13 +201,13 @@ const deckData = {
         },
         {
           title: "Unifi KP Office",
-          status: "Pending TM Follow-Up",
+          status: "Restored / Follow-Up In Progress",
           tone: "warning",
           details: [
-            "No internet connection since 16 June 2026.",
-            "TM has been contacted, but there have been multiple reschedules on their side.",
-            "Customer service promised a reschedule date within the week, but the confirmed date has not yet been received.",
-            "Further follow-up with TM is required."
+            "The KP office confirmed on 27 July 2026 that the internet connection had been restored.",
+            "The existing fibre cable from the distribution box was repaired and is currently in use.",
+            "Installation of the new fibre cable from J Residence is still in progress.",
+            "Occasional intermittent disruptions may still occur, and TM rebate follow-up remains outstanding."
           ]
         },
         {
@@ -156,9 +215,9 @@ const deckData = {
           status: "Restored",
           tone: "success",
           details: [
-            "On 23 June 2026, Starlink PH was reported to have no internet connection.",
-            "Investigation found that during the power down at PH, the Starlink system reset itself.",
-            "After re-setting up the modem/router, internet service was restored."
+            "The Starlink system previously reset itself during a power-down at PH.",
+            "The modem/router was set up again and the internet service was restored.",
+            "The connection remains under normal operational monitoring."
           ]
         }
       ]
@@ -196,29 +255,29 @@ const deckData = {
       subtitle: "Ongoing projects and current status.",
       items: [
         {
-          title: "New Backup Internet for KP & MOTOTRBO",
-          tag: "In Progress",
-          details: "Documents required for U Mobile application were discussed with Mr. Wilfred. Requirements were compared against previous Celcom submission. U Mobile was contacted but no response was received, so another U Mobile business agent will be explored."
+          title: "KP Internet Solution",
+          tag: "Testing Completed / Installation Pending",
+          details: "The U Mobile SIM card and WiFi 6 modem arrived on 31 July 2026. At KK, the one-device average test recorded 26.16 Mbps download and 40.66 Mbps upload on 4G, and 291.33 Mbps download and 31.93 Mbps upload on 5G. A simulated KP environment using multiple devices on 4G recorded 12.58 Mbps download and 24.2 Mbps upload. Installation at KP was proposed for Friday, 7 August 2026, while Mdm I-Gek asked whether it could be carried out on Saturday. The final installation schedule is pending confirmation."
         },
         {
-          title: "Microsoft 365 Migration",
-          tag: "Completed / Monitoring",
-          details: "On Saturday, 27 June 2026, all email accounts were successfully migrated to mountaintorq.com. The system is currently being monitored for any Microsoft 365 Business Standard issues."
+          title: "MOTOTRBO IT Side Update",
+          tag: "Waiting for U Mobile Deployment",
+          details: "The next MOTOTRBO network setup step will proceed after the U Mobile connection has been installed and fully tested at KP. The intended work includes dispatcher connectivity, port forwarding, network switching, and backup internet procedures."
         },
         {
-          title: "MOTOTRBO IT Side",
-          tag: "Research Completed",
-          details: "Eyzrin discovered that AnyDesk can be used to monitor the MOTOTRBO system remotely through screen sharing. However, the interaction is one-way only; users can hear and view the system but cannot talk back to PH. Research found that the paid version does not enable voice communication to PH."
+          title: "Microsoft 365 / OneDrive Update",
+          tag: "Monitoring",
+          details: "Management access to staff OneDrive accounts has been enabled. No complaints have been received regarding access to the shared OneDrive links. The setup remains under monitoring."
         },
         {
-          title: "Odoo",
-          tag: "Pending Trial",
-          details: "Accounts will test the trial version before proceeding with the two-user subscription. The Accounts team is expected to be available in mid-August. After the 30-day trial, a meeting with the Odoo agent can be arranged to discuss concerns, limitations, and questions."
+          title: "Odoo Update",
+          tag: "Trial Scheduled",
+          details: "Accounts plans to begin testing the full Odoo trial on 1 September 2026 and use the one-month period to evaluate the system before the next discussion with the Odoo agent."
         },
         {
           title: "CCTV Installation for PH",
-          tag: "Testing at KP",
-          details: "The CCTV and 256GB SD card were received from Purchasing. Initial testing at KK showed sunlight is not sufficient and outdoor placement is not advisable due to theft risk. The CCTV is now installed at KP for a two-week test because KP weather conditions are almost similar to PH. Eizzat is monitoring video resolution, storage usage, internet connection, weather conditions, and overall performance."
+          tag: "Still In Progress",
+          details: "The testing data from 2 to 16 July is being reviewed. Storage, recording, battery, solar-charging performance, recommended camera configuration, CCTV placement, and solar-panel placement must be finalised before the end of August."
         }
       ]
     },
@@ -228,12 +287,14 @@ const deckData = {
       title: "Recommended Next Actions",
       subtitle: "Follow-up actions for items that are pending, under monitoring, or require decision-making.",
       actions: [
-        { title: "Investigate laminator machine", owner: "IT Support", due: "Next support cycle", status: "Pending" },
-        { title: "Follow up with TM for KP Unifi reschedule date", owner: "IT Support", due: "Immediate", status: "Pending" },
-        { title: "Continue monitoring Microsoft 365 after migration", owner: "Adly", due: "Ongoing", status: "Monitoring" },
-        { title: "Look for another U Mobile business agent", owner: "Adly", due: "Next follow-up", status: "Pending" },
-        { title: "Continue CCTV performance testing at KP", owner: "Eizzat", due: "Two-week testing period", status: "Monitoring" },
-        { title: "Plan Odoo trial with Accounts team", owner: "Accounts / IT", due: "Mid-August", status: "Scheduled" }
+        { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
+        { title: "Complete the email signature setup on Sipa’s laptop", owner: "Eizzat", due: "When laptop access is available", status: "In Progress" },
+        { title: "Follow up with Global Surveillance and replace the faulty KK CCTV", owner: "Eizzat", due: "11 August 2026", status: "In Progress" },
+        { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
+        { title: "Obtain Fae’s confirmation on monitor collection or delivery", owner: "Adly", due: "Before end of September", status: "Pending Confirmation" },
+        { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
+        { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
+        { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
       ]
     },
     {
