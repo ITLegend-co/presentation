@@ -56,11 +56,16 @@ const deckData = {
       cards: [
         {
           title: "Monitor Request & Recommendation – Fae",
-          status: "Still In Progress",
+          status: "Price Checking In Progress",
           tone: "warning",
           details: [
-            "Ros confirmed that Fae’s trip to KK has been cancelled.",
-            "Continue checking AirAsia and Malaysia Airlines luggage charges for transporting a 7 kg monitor, including insurance coverage."
+            "Ros confirmed that Fae’s planned trip to KK has been cancelled.",
+            "AirAsia permits two cabin-baggage pieces with a combined maximum weight of 7kg. The main cabin bag must not exceed 56cm × 36cm × 23cm, and the smaller personal item must not exceed 40cm × 30cm × 10cm. The packed monitor can only be carried in the cabin if it meets these limits.",
+            "If the packed monitor does not meet AirAsia’s cabin limits, checked baggage must be purchased. The actual checked-baggage price depends on the route, travel date, booking stage, and availability, so the final price must be checked using the actual booking details.",
+            "AirAsia’s domestic Travel Comfort protection covers loss or damage to checked baggage and personal effects up to RM1,000, subject to a maximum of RM200 per item.",
+            "Malaysia Airlines permits one Economy Class cabin bag weighing up to 7kg. The packed monitor can only be carried in the cabin if it meets the airline’s size and safety requirements.",
+            "For Malaysia Airlines domestic travel, excess baggage beyond the complimentary allowance is published at USD15 per kg. Purchasing extra baggage online through Manage My Booking or the call centre may receive a 20% discount when completed at least 24 hours before departure.",
+            "MHinsure provides domestic luggage and personal-effects coverage of up to RM3,000. The final comparison still requires the departure city, destination, travel date, packed monitor dimensions, and the passenger’s existing baggage allowance."
           ]
         }
       ]
@@ -73,17 +78,14 @@ const deckData = {
       cards: [
         {
           title: "CCTV at KK Office Showing Flickering Footage",
-          status: "Task Completed",
+          status: "Task Completed / Billing Pending",
           tone: "success",
           details: [
-            "Date: 1 August 2026",
-            "Findings: The technician found that the coaxial and power cables had been stretched, placing excessive strain on the connections. Over time, this caused the cables to gradually deteriorate, resulting in the flickering footage.",
-            "Action Taken: The technician re-stripped and reconnected the existing power and coaxial cables inside the conduit. However, the CCTV footage continued to flicker.",
-            "The faulty CCTV unit was replaced with a brand-new unit.",
-            "The cables were extended and reconnected to prevent further strain and reduce the risk of damage.",
+            "On 1 August 2026, the technician found that the coaxial and power cables had been stretched, placing excessive strain on the connections. Over time, the cables gradually deteriorated and caused the CCTV footage to flicker.",
+            "The technician re-stripped and reconnected the existing power and coaxial cables inside the conduit, but the footage continued to flicker.",
+            "The faulty CCTV unit was replaced with a brand-new unit. The cables were extended and reconnected to prevent further strain and reduce the risk of damage.",
             "The CCTV angle was adjusted to match its previous position behind Vince’s desk.",
-            "Result: The new CCTV unit is functioning properly, with no flickering footage. The power and coaxial cables have also been extended to prevent excessive strain and future damage.",
-            "Latest Update: The technician advised that the bill will be issued next week."
+            "The new CCTV unit is functioning properly with no flickering footage. The technician advised that the bill will be issued next week."
           ]
         },
         {
@@ -215,7 +217,7 @@ const deckData = {
           status: "Stable",
           tone: "success",
           details: [
-            "No major internet disturbance has been reported since the previous HOD meeting."
+            "No major internet disturbance has been reported since the last HOD meeting."
           ]
         }
       ]
@@ -288,7 +290,7 @@ const deckData = {
         { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
         { title: "Follow up and obtain the bill for the completed KK CCTV replacement", owner: "Eizzat", due: "Next week", status: "Pending Billing" },
         { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
-        { title: "Check AirAsia and Malaysia Airlines luggage charges for transporting Fae’s 7 kg monitor, including insurance coverage", owner: "Adly", due: "Before end of September", status: "Still In Progress" },
+        { title: "Confirm Fae’s route, travel date, packed monitor dimensions, baggage allowance, and insurance option before obtaining final AirAsia and Malaysia Airlines quotations", owner: "Adly", due: "Before end of September", status: "Price Checking" },
         { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
         { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
         { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
