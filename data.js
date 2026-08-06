@@ -62,9 +62,10 @@ const deckData = {
             "Sending Fae’s existing monitor remains the more cost-effective option. Professional packing and insured delivery were estimated at RM336, compared with approximately RM1,288 or more to purchase a new monitor.",
             "The original plan was for Fae to carry the monitor during her August trip to KK, but Ros has confirmed that the trip has been cancelled.",
             "AirAsia without insurance: RM89 for the minimum 10kg checked-baggage allowance when added during the initial booking.",
-            "AirAsia with insurance: From RM99 total, consisting of RM89 for 10kg checked baggage plus Travel Comfort insurance from RM10. The insurance covers checked baggage and personal effects up to RM1,000, limited to RM200 per item.",
-            "Malaysia Airlines without insurance: USD84 for 7kg excess baggage when pre-purchased with the available 20% discount, or USD105 at the standard domestic rate of USD15 per kg.",
-            "Malaysia Airlines with insurance: Add the MHinsure premium to the baggage charge. The exact insurance price requires the route, travel date, and passenger details. MHinsure covers luggage and personal effects up to RM3,000.",
+            "AirAsia with insurance: From RM99 total, consisting of RM89 for 10kg checked baggage plus Travel Comfort insurance from RM10. Baggage coverage is up to RM1,000, limited to RM200 per item.",
+            "Malaysia Airlines without insurance, estimated for 1 passenger from Kota Kinabalu to Kuala Lumpur: Approximately RM490 for 10kg of pre-purchased extra baggage. A 7kg monitor requires the 10kg option because extra baggage is sold in 5kg units.",
+            "Malaysia Airlines with insurance: Approximately RM490 plus the MHinsure premium. The exact premium must be confirmed once the travel date and passenger details are available. MHinsure provides luggage and personal-effects coverage of up to RM3,000.",
+            "The Malaysia Airlines amount is an estimate and the final price in MYR may vary based on the booking date and exchange rate.",
             "If airline transport is not practical or cost-effective, proceed with professional packing and insured delivery before the end of September."
           ]
         }
@@ -290,7 +291,7 @@ const deckData = {
         { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
         { title: "Follow up and obtain the bill for the completed KK CCTV replacement", owner: "Eizzat", due: "Next week", status: "Pending Billing" },
         { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
-        { title: "Confirm the final AirAsia or Malaysia Airlines transport cost and insurance premium for Fae’s monitor", owner: "Adly", due: "Before end of September", status: "Price Checking" },
+        { title: "Confirm the final AirAsia or Malaysia Airlines transport cost and insurance premium for 1 passenger from Kota Kinabalu to Kuala Lumpur", owner: "Adly", due: "Before end of September", status: "Price Checking" },
         { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
         { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
         { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
