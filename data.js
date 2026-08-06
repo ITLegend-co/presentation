@@ -60,16 +60,12 @@ const deckData = {
           tone: "warning",
           details: [
             "Sending Fae’s existing monitor remains the more cost-effective option. Professional packing and insured delivery were estimated at RM336, compared with approximately RM1,288 or more to purchase a new monitor.",
-            "The original plan was to confirm whether Fae would travel to KK in August and could carry the monitor back personally.",
-            "Ros has since confirmed that Fae’s planned trip to KK has been cancelled.",
-            "The next step is to compare AirAsia and Malaysia Airlines charges for transporting the packed monitor as a 7kg item, including suitable insurance coverage.",
-            "If airline transport is not practical or cost-effective, proceed with professional packing and insured delivery before the end of September.",
-            "AirAsia permits two cabin-baggage pieces with a combined maximum weight of 7kg. The main cabin bag must not exceed 56cm × 36cm × 23cm, and the smaller personal item must not exceed 40cm × 30cm × 10cm. The packed monitor can only be carried in the cabin if it meets these limits.",
-            "If the packed monitor does not meet AirAsia’s cabin limits, checked baggage must be purchased. The actual checked-baggage price depends on the route, travel date, booking stage, and availability, so the final price must be checked using the actual booking details.",
-            "AirAsia’s domestic Travel Comfort protection covers loss or damage to checked baggage and personal effects up to RM1,000, subject to a maximum of RM200 per item.",
-            "Malaysia Airlines permits one Economy Class cabin bag weighing up to 7kg. The packed monitor can only be carried in the cabin if it meets the airline’s size and safety requirements.",
-            "For Malaysia Airlines domestic travel, excess baggage beyond the complimentary allowance is published at USD15 per kg. Purchasing extra baggage online through Manage My Booking or the call centre may receive a 20% discount when completed at least 24 hours before departure.",
-            "MHinsure provides domestic luggage and personal-effects coverage of up to RM3,000. The final comparison still requires the departure city, destination, travel date, packed monitor dimensions, and the passenger’s existing baggage allowance."
+            "The original plan was for Fae to carry the monitor during her August trip to KK, but Ros has confirmed that the trip has been cancelled.",
+            "AirAsia without insurance: RM89 for the minimum 10kg checked-baggage allowance when added during the initial booking.",
+            "AirAsia with insurance: From RM99 total, consisting of RM89 for 10kg checked baggage plus Travel Comfort insurance from RM10. The insurance covers checked baggage and personal effects up to RM1,000, limited to RM200 per item.",
+            "Malaysia Airlines without insurance: USD84 for 7kg excess baggage when pre-purchased with the available 20% discount, or USD105 at the standard domestic rate of USD15 per kg.",
+            "Malaysia Airlines with insurance: Add the MHinsure premium to the baggage charge. The exact insurance price requires the route, travel date, and passenger details. MHinsure covers luggage and personal effects up to RM3,000.",
+            "If airline transport is not practical or cost-effective, proceed with professional packing and insured delivery before the end of September."
           ]
         }
       ]
@@ -294,7 +290,7 @@ const deckData = {
         { title: "Confirm the U Mobile installation date and proceed with KP network setup", owner: "Adly", due: "Before end of August", status: "Pending Confirmation" },
         { title: "Follow up and obtain the bill for the completed KK CCTV replacement", owner: "Eizzat", due: "Next week", status: "Pending Billing" },
         { title: "Follow up with TM on the new KP fibre cable and rebate", owner: "Eizzat", due: "Immediate", status: "In Progress" },
-        { title: "Confirm Fae’s route, travel date, packed monitor dimensions, baggage allowance, and insurance option before obtaining final AirAsia and Malaysia Airlines quotations", owner: "Adly", due: "Before end of September", status: "Price Checking" },
+        { title: "Confirm the final AirAsia or Malaysia Airlines transport cost and insurance premium for Fae’s monitor", owner: "Adly", due: "Before end of September", status: "Price Checking" },
         { title: "Finalise the CCTV and solar-panel recommendations for PH", owner: "Eizzat", due: "Before end of August", status: "In Progress" },
         { title: "Prepare the Odoo trial with the Accounts team", owner: "Accounts / IT", due: "1 September 2026", status: "Scheduled" },
         { title: "Dispose of the approved Samsung SCX-4251F and update the asset record", owner: "IT Support", due: "Next disposal arrangement", status: "Approved" }
