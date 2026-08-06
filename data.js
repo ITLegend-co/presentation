@@ -234,7 +234,7 @@ const deckData = {
       columns: ["Printer", "Current Status", "Last Replaced / Replenished"],
       rows: [
         ["Ricoh Aficio MP3004", "Colour: 90% · Black: 80%", "-"],
-        ["Fuji Xerox S2520", "No level indicator. Toner has not shown replacement warning.", "10 April 2026"],
+        ["Fuji Xerox S2520", "No level indicator. Toner has not shown replacement warning.", "4 August 2026"],
         ["Canon MF232w", "No toner level indicator. Toner is still usable.", "25 November 2025"],
         ["Canon MF3010", "No level indicator. Toner has not shown replacement warning.", "15 August 2024"],
         ["Brother QL-570", "Sticker labels are still thick. No replenishment needed for now.", "24 November 2025"]
@@ -247,7 +247,7 @@ const deckData = {
       subtitle: "Toner and consumable status for KP Office and PH printers.",
       columns: ["Location", "Printer", "Current Status", "Last Replaced / Replenished"],
       rows: [
-        ["KP Office", "Canon MF643CDW", "Black: 30% · Colour: 0%. Colour will be replenished only when needed.", "24 May 2026"],
+        ["KP Office", "Canon MF643CDW", "Black: 90% · Colour: 90%.", "28 July 2026"],
         ["KP Office", "Canon E470", "Black: Above 50% · Colour: 0%. Colour will be replenished only when needed.", "24 November 2025"],
         ["PH", "Canon MF4410", "No indicator. Toner has not shown replacement warning.", "21 June 2026"]
       ]
