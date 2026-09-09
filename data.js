@@ -230,7 +230,7 @@ const deckData = {
       subtitle: "Toner and consumable status for KK Office printers.",
       columns: ["Printer", "Current Status", "Last Replaced / Replenished"],
       rows: [
-        ["Ricoh Aficio MP3004", "Colour: 90% · Black: 80%", "-"],
+        ["Ricoh Aficio MP3004", "Black: Above 70% · Cyan: Above 90% · Yellow: Above 90% · Magenta: Above 90%. No replenishment since the last HOD meeting.", "No replenishment since last HOD meeting"],
         ["Fuji Xerox S2520", "No level indicator. Toner has not shown replacement warning.", "4 August 2026"],
         ["Canon MF232w", "No toner level indicator. Toner is still usable.", "25 November 2025"],
         ["Canon MF3010", "No level indicator. Toner has not shown replacement warning.", "15 August 2024"],
@@ -244,9 +244,9 @@ const deckData = {
       subtitle: "Toner and consumable status for KP Office and PH printers.",
       columns: ["Location", "Printer", "Current Status", "Last Replaced / Replenished"],
       rows: [
-        ["KP Office", "Canon MF643CDW", "Black: 90% · Colour: 90%.", "28 July 2026"],
+        ["KP Office", "Canon MF643CDW", "Black: 30% · Yellow: 40% · Magenta: 50% · Cyan: 50%.", "Black: 25 August 2026 · Colour: 28 August 2026"],
         ["KP Office", "Canon E470", "Black: Above 50% · Colour: 0%. Colour will be replenished only when needed.", "24 November 2025"],
-        ["PH", "Canon MF4410", "No indicator. Toner has not shown replacement warning.", "21 June 2026"]
+        ["PH", "Canon MF4410", "No update since the last HOD meeting. Toner status remains unchanged.", "21 June 2026"]
       ]
     },
     {
