@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT Support Update & Progress</title>
+  <meta name="theme-color" content="#d83a19" />
+  <title>IT Update — HOD Bento Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="table-prop prop-lemon" aria-hidden="true">🍋</div>
+  <div class="table-prop prop-leaf" aria-hidden="true">🌿</div>
+  <div class="table-prop prop-napkin" aria-hidden="true"></div>
+
   <div class="deck-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand-block">
-        <div class="brand-mark">IT</div>
+        <div class="brand-mark">🍱</div>
         <div>
-          <p class="brand-kicker">Support Report</p>
-          <h1 id="deckTitleSide">IT Support Update</h1>
+          <p class="brand-kicker">Today’s Menu</p>
+          <h1 id="deckTitleSide">IT Update</h1>
         </div>
       </div>
+
+      <div class="sidebar-note">Small updates.<br><strong>Big impact!</strong> ☺</div>
 
       <nav id="slideNav" class="slide-nav" aria-label="Slide navigation"></nav>
 
@@ -30,22 +37,24 @@
 
     <main class="presentation">
       <div class="topbar">
-        <button class="icon-btn" id="toggleSidebar" title="Toggle sidebar">☰</button>
-        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <button class="icon-btn" id="toggleSidebar" title="Toggle menu">☰ Menu</button>
+        <div class="progress-wrap">
+          <span class="progress-label">Serving progress</span>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
         <div class="slide-count"><span id="currentSlide">1</span>/<span id="totalSlides">1</span></div>
-        <button class="ghost-btn" onclick="window.print()">Print / PDF</button>
+        <button class="ghost-btn" onclick="window.print()">🧾 Print / PDF</button>
       </div>
 
       <section id="slideStage" class="slide-stage" aria-live="polite"></section>
 
       <div class="controls">
-        <button id="prevBtn" class="control-btn">← Previous</button>
-        <button id="nextBtn" class="control-btn primary">Next →</button>
+        <button id="prevBtn" class="control-btn">← Previous dish</button>
+        <button id="nextBtn" class="control-btn primary">Next dish →</button>
       </div>
     </main>
   </div>
 
-  <!-- Edit your report content in data.js only. -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
