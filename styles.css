@@ -286,6 +286,7 @@ button { font: inherit; }
 
 .icon-btn,
 .ghost-btn,
+.sound-btn,
 .control-btn {
   border: 1px solid #b57349;
   border-radius: 14px;
@@ -300,6 +301,7 @@ button { font: inherit; }
 
 .icon-btn:hover,
 .ghost-btn:hover,
+.sound-btn:hover,
 .control-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 7px 12px rgba(101, 48, 19, .15);
@@ -342,6 +344,33 @@ button { font: inherit; }
   text-align: center;
   font-family: "Fredoka", sans-serif;
   font-weight: 700;
+}
+
+.sound-btn {
+  min-width: 112px;
+  white-space: nowrap;
+  border-color: #d48a35;
+  background: linear-gradient(145deg, #fff2ae, #ffd968);
+}
+
+.sound-btn.muted {
+  color: #8a6653;
+  border-color: #bba58f;
+  background: #efe4d7;
+  box-shadow: none;
+}
+
+.sound-btn:not(.muted)::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 7px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: #43a94f;
+  box-shadow: 0 0 0 0 rgba(67,169,79,.45);
+  animation: soundPulse 1.8s ease-out infinite;
 }
 
 .slide-stage {
@@ -1170,6 +1199,12 @@ tbody tr:last-child td { border-bottom: 0; }
   to { background-position: 168px 0; }
 }
 
+@keyframes soundPulse {
+  0% { box-shadow: 0 0 0 0 rgba(67,169,79,.45); }
+  70% { box-shadow: 0 0 0 7px rgba(67,169,79,0); }
+  100% { box-shadow: 0 0 0 0 rgba(67,169,79,0); }
+}
+
 @media (max-width: 1100px) {
   .deck-shell { grid-template-columns: 1fr; }
   .sidebar {
@@ -1198,6 +1233,7 @@ tbody tr:last-child td { border-bottom: 0; }
   .prop-napkin, .prop-lemon, .prop-leaf { display: none; }
   .topbar { flex-wrap: wrap; }
   .progress-wrap { order: 3; flex-basis: 100%; }
+  .sound-btn { min-width: 102px; padding-inline: 10px; }
   .ghost-btn { margin-left: auto; }
   .hero-title-row { grid-template-columns: 1fr; }
   .sticky-note {
