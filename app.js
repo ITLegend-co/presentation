@@ -11,8 +11,126 @@ const deckTitleSide = document.getElementById("deckTitleSide");
 const preparedBy = document.getElementById("preparedBy");
 const reportDate = document.getElementById("reportDate");
 const toggleSidebar = document.getElementById("toggleSidebar");
+const soundToggle = document.getElementById("soundToggle");
 const sidebar = document.getElementById("sidebar");
 const visibleSlides = deckData.slides.filter(slide => !slide.hidden);
+
+let audioContext = null;
+let soundEnabled = localStorage.getItem("hod-bento-sound") !== "off";
+
+function getAudioContext() {
+  if (!audioContext) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return null;
+    audioContext = new AudioCtx();
+  }
+  if (audioContext.state === "suspended") audioContext.resume();
+  return audioContext;
+}
+
+function tone(ctx, startFreq, endFreq, duration, type = "sine", volume = 0.045, delay = 0) {
+  const now = ctx.currentTime + delay;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(startFreq, now);
+  osc.frequency.exponentialRampToValueAtTime(Math.max(30, endFreq), now + duration);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + duration + 0.03);
+}
+
+function noise(ctx, duration = 0.08, volume = 0.025, delay = 0, highpass = 500) {
+  const sampleRate = ctx.sampleRate;
+  const buffer = ctx.createBuffer(1, Math.max(1, Math.floor(sampleRate * duration)), sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i += 1) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+  }
+  const src = ctx.createBufferSource();
+  const filter = ctx.createBiquadFilter();
+  const gain = ctx.createGain();
+  filter.type = "highpass";
+  filter.frequency.value = highpass;
+  gain.gain.value = volume;
+  src.buffer = buffer;
+  src.connect(filter).connect(gain).connect(ctx.destination);
+  const now = ctx.currentTime + delay;
+  src.start(now);
+  src.stop(now + duration);
+}
+
+function playEffect(name) {
+  if (!soundEnabled) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  switch (name) {
+    case "menu":
+      tone(ctx, 330, 250, 0.07, "triangle", 0.026);
+      tone(ctx, 165, 135, 0.09, "sine", 0.016, 0.025);
+      break;
+    case "next":
+      tone(ctx, 360, 520, 0.09, "triangle", 0.032);
+      tone(ctx, 520, 690, 0.09, "triangle", 0.024, 0.07);
+      noise(ctx, 0.045, 0.009, 0.025, 1100);
+      break;
+    case "prev":
+      tone(ctx, 520, 350, 0.1, "triangle", 0.03);
+      tone(ctx, 350, 245, 0.09, "triangle", 0.022, 0.07);
+      break;
+    case "bento1":
+      noise(ctx, 0.22, 0.022, 0, 1600);
+      tone(ctx, 145, 105, 0.15, "sine", 0.035, 0.02);
+      break;
+    case "bento2":
+      tone(ctx, 392, 392, 0.11, "sine", 0.034);
+      tone(ctx, 523, 523, 0.13, "sine", 0.03, 0.075);
+      break;
+    case "bento3":
+      tone(ctx, 660, 860, 0.09, "triangle", 0.03);
+      tone(ctx, 880, 1180, 0.15, "sine", 0.02, 0.07);
+      break;
+    case "bento4":
+      noise(ctx, 0.045, 0.048, 0, 2200);
+      noise(ctx, 0.035, 0.035, 0.055, 2800);
+      tone(ctx, 210, 165, 0.08, "square", 0.012);
+      break;
+    case "bento5":
+      tone(ctx, 520, 210, 0.26, "sine", 0.024);
+      tone(ctx, 390, 160, 0.22, "triangle", 0.013, 0.045);
+      break;
+    case "bento6":
+      tone(ctx, 660, 660, 0.12, "sine", 0.025);
+      tone(ctx, 830, 830, 0.14, "sine", 0.024, 0.075);
+      tone(ctx, 1046, 1046, 0.17, "sine", 0.02, 0.15);
+      break;
+    case "dessert":
+      tone(ctx, 523, 523, 0.2, "sine", 0.028);
+      tone(ctx, 659, 659, 0.23, "sine", 0.026, 0.09);
+      tone(ctx, 784, 784, 0.32, "sine", 0.022, 0.18);
+      break;
+    case "toggle":
+      tone(ctx, 440, 660, 0.12, "triangle", 0.028);
+      break;
+    default:
+      tone(ctx, 280, 340, 0.07, "triangle", 0.022);
+  }
+}
+
+function updateSoundButton() {
+  if (!soundToggle) return;
+  soundToggle.textContent = soundEnabled ? "🔊 Sound On" : "🔇 Sound Off";
+  soundToggle.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
+  soundToggle.classList.toggle("muted", !soundEnabled);
+}
+
+function navigationSound(defaultSound, targetIndex) {
+  return visibleSlides[targetIndex]?.type === "closing" ? "dessert" : defaultSound;
+}
 
 const navIcons = ["🍱", "🥢", "🍗", "🥦", "🍜", "🥕", "🍙", "🥟", "🍓", "🍊", "🍰"];
 
@@ -85,7 +203,7 @@ function renderHero(slide) {
 
       <div class="bento-tray" aria-label="Interactive report menu">
         ${bentoShortcuts.map(item => `
-          <button type="button" class="bento-cell ${item.className}" data-jump="${item.target}" aria-label="Open ${escapeHtml(item.title)}">
+          <button type="button" class="bento-cell ${item.className}" data-jump="${item.target}" data-sound="bento${item.number}" aria-label="Open ${escapeHtml(item.title)}">
             <div class="food-scene" aria-hidden="true">
               <span>${item.icon}</span><span>${item.icon}</span><span>${item.icon}</span>
             </div>
@@ -271,7 +389,9 @@ function buildNav() {
   nav.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-slide]");
     if (!button) return;
-    currentIndex = Number(button.dataset.slide);
+    const target = Number(button.dataset.slide);
+    playEffect(navigationSound("menu", target));
+    currentIndex = target;
     renderSlide();
   });
 }
@@ -281,38 +401,65 @@ stage.addEventListener("click", (event) => {
   if (!jump) return;
   const target = Number(jump.dataset.jump);
   if (!Number.isFinite(target) || target < 0 || target >= visibleSlides.length) return;
+  playEffect(jump.dataset.sound || navigationSound("menu", target));
   currentIndex = target;
   renderSlide();
 });
 
 prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) currentIndex -= 1;
+  if (currentIndex > 0) {
+    const target = currentIndex - 1;
+    playEffect(navigationSound("prev", target));
+    currentIndex = target;
+  }
   renderSlide();
 });
 
 nextBtn.addEventListener("click", () => {
-  if (currentIndex < visibleSlides.length - 1) currentIndex += 1;
+  if (currentIndex < visibleSlides.length - 1) {
+    const target = currentIndex + 1;
+    playEffect(navigationSound("next", target));
+    currentIndex = target;
+  }
   renderSlide();
 });
 
 document.addEventListener("keydown", (event) => {
   if (["ArrowRight", "PageDown", " "].includes(event.key)) {
-    if (currentIndex < visibleSlides.length - 1) currentIndex += 1;
+    if (currentIndex < visibleSlides.length - 1) {
+      const target = currentIndex + 1;
+      playEffect(navigationSound("next", target));
+      currentIndex = target;
+    }
     renderSlide();
   }
   if (["ArrowLeft", "PageUp"].includes(event.key)) {
-    if (currentIndex > 0) currentIndex -= 1;
+    if (currentIndex > 0) {
+      const target = currentIndex - 1;
+      playEffect(navigationSound("prev", target));
+      currentIndex = target;
+    }
     renderSlide();
   }
   if (event.key === "Home") {
+    playEffect("menu");
     currentIndex = 0;
     renderSlide();
   }
 });
 
 toggleSidebar.addEventListener("click", () => {
+  playEffect("menu");
   sidebar.classList.toggle("hidden");
 });
 
+soundToggle?.addEventListener("click", () => {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("hod-bento-sound", soundEnabled ? "on" : "off");
+  updateSoundButton();
+  if (soundEnabled) playEffect("toggle");
+});
+
+updateSoundButton();
 buildNav();
 renderSlide();
