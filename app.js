@@ -12,6 +12,8 @@ const preparedBy = document.getElementById("preparedBy");
 const reportDate = document.getElementById("reportDate");
 const toggleSidebar = document.getElementById("toggleSidebar");
 const soundToggle = document.getElementById("soundToggle");
+const startScreen = document.getElementById("startScreen");
+const startPresentation = document.getElementById("startPresentation");
 const sidebar = document.getElementById("sidebar");
 const visibleSlides = deckData.slides.filter(slide => !slide.hidden);
 
@@ -115,6 +117,13 @@ function playEffect(name) {
       break;
     case "toggle":
       tone(ctx, 440, 660, 0.12, "triangle", 0.028);
+      break;
+    case "intro":
+      tone(ctx, 262, 262, 0.16, "sine", 0.026);
+      tone(ctx, 330, 330, 0.18, "sine", 0.026, 0.10);
+      tone(ctx, 392, 392, 0.20, "sine", 0.028, 0.20);
+      tone(ctx, 523, 523, 0.30, "triangle", 0.032, 0.31);
+      noise(ctx, 0.08, 0.014, 0.23, 1500);
       break;
     default:
       tone(ctx, 280, 340, 0.07, "triangle", 0.022);
@@ -458,6 +467,18 @@ soundToggle?.addEventListener("click", () => {
   localStorage.setItem("hod-bento-sound", soundEnabled ? "on" : "off");
   updateSoundButton();
   if (soundEnabled) playEffect("toggle");
+});
+
+startPresentation?.addEventListener("click", () => {
+  getAudioContext();
+  playEffect("intro");
+  document.body.classList.add("presentation-started");
+  startScreen?.classList.add("is-leaving");
+
+  window.setTimeout(() => {
+    startScreen?.remove();
+    document.body.classList.remove("presentation-locked");
+  }, 850);
 });
 
 updateSoundButton();
