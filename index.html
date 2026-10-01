@@ -10,7 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="presentation-locked">
+  <div class="start-screen" id="startScreen" role="dialog" aria-modal="true" aria-label="Start presentation">
+    <button class="start-presentation-btn" id="startPresentation" type="button">
+      <span class="start-icon">🍱</span>
+      <span>START PRESENTATION</span>
+      <small>Tap to serve</small>
+    </button>
+  </div>
+
   <div class="table-prop prop-lemon" aria-hidden="true">🍋</div>
   <div class="table-prop prop-leaf" aria-hidden="true">🌿</div>
   <div class="table-prop prop-napkin" aria-hidden="true"></div>
