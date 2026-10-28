@@ -1,16 +1,14 @@
 /*
   HOD IT UPDATE PRESENTATION
-  Reporting window: 10 September 2026 - 30 September 2026
-  HOD meeting: 1 October 2026, 10:00 AM
-
-  Main file for future updates.
+  Reporting window: 2 October 2026 - 28 October 2026
+  HOD meeting: 29 October 2026, 10:00 AM
 */
 
 const deckData = {
   title: "IT Update & Progress",
-  subtitle: "IT support, infrastructure, systems, subscriptions, security, and project updates since the previous HOD meeting.",
+  subtitle: "IT support, infrastructure, systems, security, maintenance and upcoming implementation work.",
   preparedBy: "Prepared by: IT Department",
-  reportDate: "HOD Meeting: 1 October 2026 · 10:00 AM",
+  reportDate: "HOD Meeting: 29 October 2026 · 10:00 AM",
   company: "Mountain Torq Sdn. Bhd.",
   slides: [
     {
@@ -18,83 +16,77 @@ const deckData = {
       label: "Cover",
       title: "IT Update & Progress",
       eyebrow: "Head of Department Update",
-      subtitle: "Reporting period: 10–30 September 2026. Key changes, completed work, current risks, and actions requiring follow-up before the next HOD review.",
-      chips: ["Support", "Infrastructure", "Systems", "Security", "Management Update"]
+      subtitle: "Reporting period: 2–28 October 2026. October results, active monitoring and November implementation priorities.",
+      chips: ["Support", "Connectivity", "Systems", "Security", "Maintenance", "November Plan"]
     },
     {
       type: "summary",
-      hidden: false,
       label: "Overview",
-      title: "Executive Overview",
-      subtitle: "Main IT changes since the previous HOD update on 9 September 2026.",
+      title: "October IT Overview",
+      subtitle: "The main changes since the 1 October 2026 HOD meeting.",
       stats: [
-        { value: "5", label: "Completed / Resolved", tone: "success" },
-        { value: "6", label: "Active Follow-Ups", tone: "warning" },
-        { value: "3", label: "Systems Under Review", tone: "purple" },
-        { value: "1", label: "Project On Hold", tone: "neutral" },
-        { value: "1", label: "Renewal Due Soon", tone: "info" }
+        { value: "2", label: "Sites PM 100% Complete", tone: "success" },
+        { value: "60%", label: "KK PM Complete", tone: "warning" },
+        { value: "1 vs 3", label: "U Mobile vs Unifi Outages", tone: "info" },
+        { value: "3", label: "Major November Actions", tone: "purple" },
+        { value: "0", label: "Major Trend Micro Alerts", tone: "success" }
       ],
       highlights: [
-        "ABSS Premier Connect was upgraded from version 2.2.1 to 2.3.1, and Accounts confirmed normal use with no missing data or errors.",
-        "Karen’s computer and Pody’s laptop issues are resolved after the RAM and SSD maintenance actions.",
-        "KP U Mobile is now being used as the primary connection, with Unifi as backup, and remains stable under monitoring until 7 November 2026.",
-        "Spam email volume has increased for several users and continues to be followed up with IPServerOne.",
-        "Preventive maintenance planning has expanded to cover KK Office, KP Office and Pendant Hut.",
-        "New internal system requests will now require a proper scope of work and Management review before development begins."
+        "PH and KP preventive maintenance are fully completed; KK Office is 60% completed.",
+        "PH backup internet has been installed and the PH team was briefed by Eizzat on when and how to use it.",
+        "During the KP monitoring period, U Mobile had 1 reported signal-loss outage while Unifi had 3 reported outages.",
+        "Spam email reports have reduced compared with last month and remain under monitoring.",
+        "Info-Tech was successfully renewed; the next renewal date is 16 October 2027.",
+        "The paid/full Odoo version will not proceed. The free version remains sufficient for the current internal reporting and payment-tracking requirement.",
+        "Accounts System development is scheduled to begin on 11 November 2026.",
+        "The company website is targeted for launch before 15 November 2026, with IT supporting domain implementation through IPServerOne."
       ]
     },
     {
       type: "cards",
-      label: "Completed",
-      title: "Completed / Resolved Since Last HOD",
-      subtitle: "Items closed or operationally resolved during the reporting period.",
+      label: "Served",
+      title: "Completed / Closed This Month",
+      subtitle: "October items that are now completed, implemented or closed from further paid evaluation.",
       cards: [
         {
-          title: "ABSS Premier Connect Upgrade",
+          title: "PH Backup Internet",
           status: "Completed",
           tone: "success",
           details: [
-            "Accounts requested an upgrade from version 2.2.1 to version 2.3.1.",
-            "Data files and templates were backed up before the upgrade and the existing data was converted to the new version.",
-            "Accounts confirmed there are no missing data or errors during normal use."
+            "Backup internet has been installed at Pendant Hut.",
+            "Eizzat briefed the PH team on when the backup connection should be used and how to activate it.",
+            "The backup connection is now available for operational use when the main connection is unavailable."
           ]
         },
         {
-          title: "Karen’s Computer Performance",
+          title: "IT Equipment Warranty Review",
           status: "Completed",
           tone: "success",
           details: [
-            "The additional RAM installation has stabilized the computer and no further hanging issue has been reported.",
-            "The additional RAM will remain permanently installed.",
-            "A replacement RAM unit will be considered later as backup stock when pricing becomes more favourable."
+            "All warranty records in the IT inventory were reviewed.",
+            "No faulty IT assets were identified during the review.",
+            "Warranty information will continue to be maintained as part of the IT inventory process."
           ]
         },
         {
-          title: "Pody’s Laptop SSD Issue",
-          status: "Completed",
-          tone: "success",
-          details: [
-            "The SSD contacts were cleaned and the SSD was reseated.",
-            "The laptop is now functioning normally with no recurrence during monitoring."
-          ]
-        },
-        {
-          title: "Printer Toner Replenishment",
-          status: "Completed",
-          tone: "success",
-          details: [
-            "Ros approved the toner purchase.",
-            "Current inventory now has 3 black toner units and 2 units for each colour.",
-            "IT will continue recording consumption so Purchasing can replenish stock and future requests can be evaluated using actual usage."
-          ]
-        },
-        {
-          title: "Alarm System Subscription",
+          title: "Info-Tech Renewal",
           status: "Renewed",
           tone: "success",
           details: [
-            "The Alarm System subscription has been renewed.",
-            "The updated renewal information will remain recorded in the subscription register."
+            "The Info-Tech subscription was successfully renewed.",
+            "Next renewal date: 16 October 2027.",
+            "No further renewal action is required at this stage."
+          ]
+        },
+        {
+          title: "Odoo Full-Version Evaluation",
+          status: "Closed / No Paid Upgrade",
+          tone: "success",
+          details: [
+            "The full version was tested and reviewed with Accounts.",
+            "The POS requirement is adequately covered without proceeding to the paid full version.",
+            "Inventory will be handled under the separate internal system project.",
+            "Recommendation: continue using the free Odoo version for current internal reporting and customer-payment tracking."
           ]
         }
       ]
@@ -102,47 +94,36 @@ const deckData = {
     {
       type: "cards",
       label: "Support & Security",
-      title: "Support, Email & Security Follow-Up",
-      subtitle: "Current support matters that still require monitoring or follow-up.",
+      title: "Support & Security Update",
+      subtitle: "Current user-support and security matters that still require monitoring.",
       cards: [
         {
-          title: "Madam I-Gek Email Issue",
-          status: "Resolved for Now / Monitoring",
-          tone: "warning",
+          title: "Spam Email / IPServerOne",
+          status: "Monitoring / Improved",
+          tone: "info",
           details: [
-            "Email sending and receiving became intermittent on the laptop while other devices continued receiving mail.",
-            "IPServerOne assisted with mail-server and Outlook configuration troubleshooting.",
-            "The email worked again after the computer was restarted; IT will follow up with mail support if the issue returns."
-          ]
-        },
-        {
-          title: "Increase in Spam Emails",
-          status: "In Progress",
-          tone: "warning",
-          details: [
-            "Spam email reports were received from Mr. Wilfred, Ros and the Accounts team.",
-            "The volume reported by Mr. Wilfred has increased significantly and is difficult to manage manually.",
-            "IT will continue following up with IPServerOne and reinforce staff awareness on suspicious email handling."
+            "Spam email remains under monitoring.",
+            "Based on staff feedback, the number of spam reports has reduced compared with last month.",
+            "IT will continue monitoring and will follow up with IPServerOne again if the volume increases."
           ]
         },
         {
           title: "Trend Micro / Antivirus",
-          status: "Monitoring",
-          tone: "info",
+          status: "Normal / Monitoring",
+          tone: "success",
           details: [
-            "No major security warning has been reported by Trend Micro.",
-            "Antivirus protection on checked computers is functioning normally.",
-            "Continue weekly monitoring and scheduled security checks."
+            "No major Trend Micro security alert has been detected since the previous HOD meeting.",
+            "Endpoint protection remains active.",
+            "Continue routine security monitoring and scheduled checks."
           ]
         },
         {
-          title: "Outlook Assigned Display Name",
-          status: "New Maintenance Check",
+          title: "General IT Support",
+          status: "Ongoing",
           tone: "info",
           details: [
-            "Ros requested IT to verify Outlook sender/display names during maintenance or account configuration.",
-            "Some recipients may otherwise see an account address such as PH1 instead of the intended staff display name such as MT Pody.",
-            "This check will be added to the IT maintenance checklist."
+            "Continue normal user support, device troubleshooting and IT assistance across KK, KP and PH.",
+            "Recurring or business-impacting issues will continue to be escalated and reported separately."
           ]
         }
       ]
@@ -150,49 +131,48 @@ const deckData = {
     {
       type: "cards",
       label: "Connectivity",
-      title: "KP & PH Connectivity Update",
-      subtitle: "Remote-access findings, internet priority changes, and backup planning.",
+      title: "Connectivity & Remote Access",
+      subtitle: "Internet reliability, backup connectivity and current remote-access troubleshooting.",
       cards: [
         {
-          title: "KP CrossChex / Anviz Remote Access",
-          status: "Configuration Updated / Monitoring",
+          title: "KP U Mobile vs Unifi Monitoring",
+          status: "Monitoring Until 7 Nov",
           tone: "info",
           details: [
-            "Local attendance access was working, but remote CrossChex / Anviz access failed.",
-            "Physical troubleshooting at KP found that the Unifi PPPoE credentials had changed during the previous outage.",
-            "New credentials were obtained and the network configuration was updated.",
-            "Remote CCTV and attendance access will continue to be verified."
+            "U Mobile remains the primary connection with Unifi as backup during the monitoring period.",
+            "Since U Mobile installation, U Mobile has had 1 reported outage caused by signal loss.",
+            "During the same period, Unifi has had 3 reported outages.",
+            "Monitoring continues until 7 November 2026 before the final connectivity recommendation is made."
           ]
         },
         {
-          title: "KP Internet Priority",
-          status: "Stable / Monitoring",
-          tone: "success",
-          details: [
-            "During the Anviz investigation, internet priority was changed from Unifi primary / U Mobile backup to U Mobile primary / Unifi backup.",
-            "KP has not reported a major U Mobile outage after the change.",
-            "Continue the existing U Mobile monitoring period until 7 November 2026."
-          ]
-        },
-        {
-          title: "Pendant Hut Backup Internet",
-          status: "Planning",
+          title: "MT Office VPN",
+          status: "Troubleshooting",
           tone: "warning",
           details: [
-            "Internet issues at PH affected customers’ ability to make QR / online payments.",
-            "The proposed backup is to reuse the TP-Link AC750 router from IT storage with a prepaid mobile-data connection.",
-            "Maxis / Hotlink is being considered because of reported stronger coverage at PH.",
-            "The backup is intended only for transaction/payment use when Starlink or customer mobile data is unavailable."
+            "Local VPN connection is working.",
+            "Office NAS access through the VPN is working.",
+            "Split tunnelling is working.",
+            "External VPN users still receive Windows Error 809.",
+            "Current troubleshooting is focused on the IPsec NAT-T / UDP 4500 communication path through the GN630V and TL-ER6120."
           ]
         },
         {
-          title: "PH CCTV Installation",
-          status: "KIV / On Hold",
+          title: "KP CrossChex / Anviz Remote Access",
+          status: "Operational / Monitoring",
+          tone: "success",
+          details: [
+            "The network configuration was updated after the previous Unifi credential change.",
+            "Continue verifying remote attendance and related access reliability during normal operations."
+          ]
+        },
+        {
+          title: "PH CCTV",
+          status: "KIV",
           tone: "neutral",
           details: [
-            "There is no change to the project status.",
-            "Installation remains on hold due to Management concern about creating additional holes at Pendant Hut.",
-            "No installation work will proceed without further instruction."
+            "The project remains on hold pending further Management direction.",
+            "No installation work will proceed until approval is given."
           ]
         }
       ]
@@ -200,129 +180,131 @@ const deckData = {
     {
       type: "timeline",
       label: "Maintenance",
-      title: "Preventive Maintenance & Warranty Plan",
-      subtitle: "Planned maintenance coverage across KK Office, KP Office and Pendant Hut.",
+      title: "Preventive Maintenance Progress",
+      subtitle: "Actual October PM completion by site, plus remaining KK Office work.",
       items: [
         {
-          title: "KP Office",
-          tag: "Planning",
-          details: "Planned checks include 1 laptop and 4 PCs, 8 UPS units, printers, router firmware/internet stability, DVR recording/playback, and alarm-system trigger testing."
+          title: "Pendant Hut",
+          tag: "100% Completed",
+          details: "All planned PH IT preventive-maintenance work has been completed."
         },
         {
-          title: "Pendant Hut",
-          tag: "Planning",
-          details: "Planned checks include 1 laptop, 4 company smartphones, 4 tablets, Anviz sync/network connectivity, laser and label printers, and network-device firmware/cabling."
+          title: "Kinabalu Park",
+          tag: "100% Completed",
+          details: "All planned KP IT preventive-maintenance work has been completed."
         },
         {
           title: "KK Office",
-          tag: "Saturday Maintenance",
-          details: "Preventive maintenance will be carried out on Saturdays to reduce disruption. Scope includes computers/laptops, displays, printers, cabling, Windows updates, batteries, DVR and alarm-system checks."
+          tag: "60% Completed",
+          details: "Remaining work includes network equipment preventive maintenance, alarm-system checks and several computers in the KK Office."
         },
         {
-          title: "Warranty Management",
-          tag: "Next Week Review",
-          details: "IT will review inventory warranty records, identify equipment approaching expiry, and perform checks while the equipment remains under warranty where appropriate."
+          title: "Warranty Review",
+          tag: "Completed",
+          details: "All IT inventory warranty records were reviewed and no faulty assets were identified."
         }
       ]
     },
     {
       type: "timeline",
       label: "Systems",
-      title: "Systems & Digitalisation Updates",
-      subtitle: "Current evaluations, internal development and requirements gathering.",
+      title: "IT Systems & Implementation",
+      subtitle: "Internal systems currently being implemented, developed or prepared for November.",
       items: [
         {
-          title: "Odoo Trial",
-          tag: "In Progress",
-          details: "The trial remains under review. Accounts, Technical and Operations will first compile internal feedback before meeting the Odoo agent. Initial feedback indicates that some functions may duplicate systems already in use."
+          title: "KP Dispatcher PC / SmartPTT",
+          tag: "November Rollout",
+          details: "SOPs for PH Trainer, KP Dispatcher and KK Dispatcher/server station are completed. The briefing presentation has been drafted and the trainer SOP has been finalised. Next steps are KP PC installation, staff briefing, test run and daily SOP implementation in November. Dispatcher PC must be switched off after operational activity ends."
         },
         {
-          title: "Department System Requests",
-          tag: "Requirements Gathering",
-          details: "Accounts, Admin and Operations have requested new systems or improvements. Management instructed IT to obtain a proper scope of work, data requirements, workflow and reporting needs before development starts. Adly will join the Accounts meeting on 6 October 2026."
+          title: "Accounts System",
+          tag: "Starts 11 Nov",
+          details: "The system workflow has already been discussed with Accounts. Development is scheduled to begin on 11 November 2026 following the agreed workflow."
         },
         {
-          title: "KCC Youth Assessment System",
-          tag: "Operational / Management Review",
-          details: "The internally developed assessment system was demonstrated, including student registration, QR/bib scanning, judging, coach evaluation, ranking and public results. Madam I-Gek requested access for review."
+          title: "Mountain Torq IT Helpdesk",
+          tag: "Development / Testing",
+          details: "Core ticketing functions, user roles, assignment/resolution workflow, attachments, notifications and reporting are in place. Current work focuses on ticket-submission reliability, permissions and desktop/mobile behaviour."
         },
         {
-          title: "PMS Simplification / Future Development",
-          tag: "Evaluation Only",
-          details: "A simplified PMS replacement or improvement was discussed after the KCC system demonstration. No project was approved. The existing PMS and administrator functions will be reviewed before any development decision."
+          title: "Odoo",
+          tag: "Paid Upgrade Closed",
+          details: "The paid full version will not proceed. Continue using the free version for the current internal reporting and customer-payment tracking requirement."
         }
       ]
     },
     {
       type: "cards",
-      label: "M365 & Process",
-      title: "Microsoft 365 & Internal Process Improvements",
-      subtitle: "Management-directed changes to licences and operational workflow.",
+      label: "Website Launch",
+      title: "Company Website Launch",
+      subtitle: "IT support required for the planned website go-live before 15 November 2026.",
       cards: [
         {
-          title: "Microsoft 365 / OneDrive Consolidation",
-          status: "New Action",
+          title: "Launch Target",
+          status: "Before 15 Nov",
           tone: "purple",
           details: [
-            "Madam I-Gek proposed consolidating the Microsoft 365 / OneDrive licences currently used by Madam I-Gek, Ros and Mr. Wilfred.",
-            "The objective is to reduce three licences to one shared account for OneDrive / administrative use while retaining individual normal email addresses.",
-            "Migration review will begin when Madam I-Gek is in KK next week."
+            "The company website is expected to launch before 15 November 2026.",
+            "IT will support the launch and domain implementation."
           ]
         },
         {
-          title: "Courier / Equipment Shipment SOP",
-          status: "Process Review",
+          title: "IPServerOne Coordination",
+          status: "Upcoming",
+          tone: "info",
+          details: [
+            "IT will contact IPServerOne to coordinate the domain implementation and required DNS/domain changes.",
+            "The domain transition will be monitored after implementation."
+          ]
+        },
+        {
+          title: "Expected Downtime / Propagation",
+          status: "2–48 Hours",
           tone: "warning",
           details: [
-            "The current courier workflow requires repeated Management approvals between the requesting department, IT and Admin.",
-            "IT proposed a clearer workflow similar to Purchasing so responsibilities are defined and duplicate approvals are removed.",
-            "Admin will be asked to review the existing process while current shipment requests continue to be assisted."
+            "A service/domain transition window of approximately 2 to 48 hours is expected during launch.",
+            "The longer window allows for domain/DNS propagation and transition effects."
           ]
         }
       ]
     },
     {
       type: "table",
-      label: "Subscriptions & Stock",
-      title: "Subscriptions & Consumables",
-      subtitle: "Items that require near-term follow-up or continued stock control.",
-      columns: ["Item", "Current Position", "Next Action"],
+      label: "Subscriptions",
+      title: "IT Subscriptions & Monitoring",
+      subtitle: "Current subscription and security items requiring ongoing tracking.",
+      columns: ["Item", "Current Status", "Next Action"],
       rows: [
-        ["Info-Tech", "Renewal due 16 October 2026. Renewal invoice has been requested.", "Follow up invoice and arrange approval before renewal date."],
-        ["Alarm System", "Renewed.", "Keep next renewal date updated in the subscription register."],
-        ["Printer Toner", "3 black units and 2 units for each colour are currently in inventory.", "Track consumption and replenish using recorded usage history."],
-        ["Spare RAM", "Karen’s additional RAM remains installed permanently.", "Consider purchasing replacement backup RAM when pricing is more favourable."]
+        ["Info-Tech", "Successfully renewed.", "Next renewal: 16 October 2027."],
+        ["Trend Micro", "Active; no major alert since last HOD.", "Continue routine monitoring."],
+        ["Alarm System", "Active / previously renewed.", "Continue tracking the next renewal date in the subscription register."]
       ]
     },
     {
       type: "nextActions",
-      label: "Management Attention",
-      title: "Management Attention & Next Actions",
-      subtitle: "Items to carry forward after the 1 October HOD meeting.",
+      label: "Next Service",
+      title: "Management Attention & November Actions",
+      subtitle: "Priority IT work to carry forward after the 29 October HOD meeting.",
       actions: [
-        { title: "Follow up increased spam-email reports with IPServerOne and continue staff awareness", owner: "Eizzat / Adly", due: "Ongoing", status: "In Progress" },
-        { title: "Review IT equipment warranties and check equipment approaching expiry", owner: "Eizzat / Adly", due: "Next week", status: "Pending" },
-        { title: "Finalize preventive-maintenance schedule for KK, KP and PH", owner: "Eizzat", due: "To be confirmed", status: "Planning" },
-        { title: "Finalize PH backup-internet proposal and required approval / arrangement", owner: "Eizzat", due: "Rough target: 21 October 2026", status: "Planning" },
-        { title: "Continue U Mobile as KP priority connection and monitor stability", owner: "Adly", due: "7 November 2026", status: "Monitoring" },
-        { title: "Compile Odoo feedback internally before engaging the agent", owner: "Adly / Users", due: "After trial review", status: "In Progress" },
-        { title: "Attend Accounts meeting and obtain proper system requirements / scope", owner: "Adly", due: "6 October 2026", status: "Pending" },
-        { title: "Review Microsoft 365 / OneDrive licence consolidation", owner: "Adly / Management", due: "Next week", status: "Pending" },
-        { title: "Follow up Info-Tech renewal invoice", owner: "Adly", due: "Before 16 October 2026", status: "Pending" },
-        { title: "Review courier / equipment-shipment SOP with Admin", owner: "Adly / Admin", due: "To be confirmed", status: "Process Review" },
-        { title: "Provide Madam I-Gek access to review the KCC Assessment system", owner: "Adly", due: "Follow-up", status: "Pending" },
-        { title: "Review existing PMS before deciding whether simplified development is needed", owner: "Adly / Madam I-Gek", due: "Next-week discussion", status: "Evaluation" }
+        { title: "Complete the remaining KK Office preventive maintenance: network, alarm and remaining computers", owner: "IT", due: "November 2026", status: "In Progress" },
+        { title: "Complete KP U Mobile monitoring and prepare the final connectivity recommendation", owner: "Adly", due: "7 November 2026", status: "Monitoring" },
+        { title: "Install, brief and test the KP Dispatcher PC / SmartPTT workflow", owner: "IT / Operations", due: "November 2026", status: "In Progress" },
+        { title: "Begin Accounts System development based on the agreed workflow", owner: "Adly", due: "11 November 2026", status: "Scheduled" },
+        { title: "Support company website launch and coordinate domain implementation with IPServerOne", owner: "Adly / IT", due: "Before 15 November 2026", status: "Scheduled" },
+        { title: "Continue MT Office VPN diagnosis for the external Error 809 / UDP 4500 path", owner: "Adly", due: "Ongoing", status: "In Progress" },
+        { title: "Continue IT Helpdesk development and reliability testing", owner: "Adly", due: "Ongoing", status: "In Progress" },
+        { title: "Continue monitoring reduced spam email volume and Trend Micro security status", owner: "IT", due: "Ongoing", status: "Monitoring" }
       ]
     },
     {
       type: "closing",
       label: "Closing",
-      title: "End of IT HOD Update",
-      subtitle: "Reporting period: 10–30 September 2026.",
+      title: "Kitchen Closed — IT Update Served",
+      subtitle: "Reporting period: 2–28 October 2026.",
       notes: [
-        "Completed items will remain under observation where necessary.",
-        "Priority follow-ups are email security, preventive maintenance, KP connectivity monitoring, upcoming subscription renewal, and proper scoping of new system requests.",
-        "Next update will reflect decisions and instructions from the 1 October 2026 HOD Meeting."
+        "October focus: complete PM, improve connectivity reliability, close unnecessary paid software evaluation and prepare November system work.",
+        "November priorities: KP Dispatcher rollout, Accounts System development, website launch, remaining KK PM and continued VPN troubleshooting.",
+        "Next update will reflect the results of the 7 November KP connectivity review and November implementation work."
       ]
     }
   ]
