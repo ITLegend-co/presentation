@@ -141,15 +141,15 @@ function navigationSound(defaultSound, targetIndex) {
   return visibleSlides[targetIndex]?.type === "closing" ? "dessert" : defaultSound;
 }
 
-const navIcons = ["🍱", "🥢", "🍗", "🥦", "🍜", "🥕", "🍙", "🥟", "🍓", "🍊", "🍰"];
+const navIcons = ["🏠", "📋", "✅", "🛡️", "📡", "🧰", "💻", "🌐", "🧾", "🎯", "🍰"];
 
 const bentoShortcuts = [
-  { number: "1", title: "Major Updates", sub: "Overview", target: 1, icon: "🍗", className: "food-teriyaki" },
-  { number: "2", title: "Ongoing Projects", sub: "Connectivity & Systems", target: 4, icon: "🍙", className: "food-rice" },
-  { number: "3", title: "System Health", sub: "Support & Security", target: 3, icon: "🥦", className: "food-greens" },
-  { number: "4", title: "Completed Items", sub: "Ready to Serve", target: 2, icon: "🍤", className: "food-fried" },
-  { number: "5", title: "Upcoming Plans", sub: "Maintenance", target: 5, icon: "🍜", className: "food-noodles" },
-  { number: "6", title: "Support Required", sub: "Management Attention", target: 9, icon: "🍓", className: "food-fruit" }
+  { number: "1", title: "Today's Specials", sub: "October overview", target: 1, icon: "📋", className: "food-teriyaki" },
+  { number: "2", title: "Served", sub: "Completed this month", target: 2, icon: "✅", className: "food-rice" },
+  { number: "3", title: "On the Stove", sub: "Connectivity", target: 4, icon: "📡", className: "food-greens" },
+  { number: "4", title: "Kitchen Check", sub: "Maintenance", target: 5, icon: "🧰", className: "food-fried" },
+  { number: "5", title: "Cooking Next", sub: "Systems & website", target: 6, icon: "💻", className: "food-noodles" },
+  { number: "6", title: "Next Orders", sub: "November actions", target: 9, icon: "🎯", className: "food-fruit" }
 ];
 
 function escapeHtml(value) {
@@ -196,37 +196,30 @@ function renderHero(slide) {
   const meetingLine = (deckData.reportDate || "").replace("HOD Meeting: ", "");
   return `
     <article class="slide hero-bento">
-      <div class="hero-title-row">
-        <div>
-          <p class="hero-kicker">Fresh ideas, always served!</p>
+      <div class="kitchen-hero">
+        <div class="kitchen-copy">
+          <div class="open-sign">OPEN · HOD SERVICE</div>
+          <p class="hero-kicker">Mountain Torq IT Kitchen</p>
           <h2>IT UPDATE</h2>
-          <h3>Head of Department Meeting</h3>
+          <h3>Fresh October updates, served for Management.</h3>
           <div class="meeting-date">${escapeHtml(meetingLine)}</div>
+          <div class="chef-note">👨‍🍳 <strong>Chef's note:</strong> completed work first, pending orders next.</div>
         </div>
-        <div class="sticky-note">
-          <span>Small<br>Updates</span>
-          <strong>Big<br>Impact!</strong>
-          <b>☺</b>
+        <div class="special-board">
+          <div class="board-pin">TODAY'S MENU</div>
+          ${bentoShortcuts.map(item => `
+            <button type="button" class="menu-shortcut ${item.className}" data-jump="${item.target}" data-sound="bento${item.number}">
+              <span class="menu-number">${item.number}</span>
+              <span class="menu-icon">${item.icon}</span>
+              <span class="menu-copy"><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.sub)}</small></span>
+              <span class="menu-arrow">→</span>
+            </button>
+          `).join("")}
         </div>
       </div>
-
-      <div class="bento-tray" aria-label="Interactive report menu">
-        ${bentoShortcuts.map(item => `
-          <button type="button" class="bento-cell ${item.className}" data-jump="${item.target}" data-sound="bento${item.number}" aria-label="Open ${escapeHtml(item.title)}">
-            <div class="food-scene" aria-hidden="true">
-              <span>${item.icon}</span><span>${item.icon}</span><span>${item.icon}</span>
-            </div>
-            <div class="bento-label">
-              <i>${item.number}</i>
-              <span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.sub)}</small></span>
-            </div>
-          </button>
-        `).join("")}
-      </div>
-
       <div class="hero-foot">
-        <span>🍴 Click any bento compartment to jump to that section.</span>
-        <span class="napkin-copy">GOOD FOOD · GOOD SYSTEM · SAME ENERGY ☺</span>
+        <span>🍽️ Pick a menu item to jump straight to that section.</span>
+        <span class="napkin-copy">STATUS: FRESH · CHECKED · READY TO SERVE</span>
       </div>
     </article>`;
 }
@@ -281,7 +274,7 @@ function renderTable(slide) {
     <article class="slide wood-board-slide">
       ${renderHeader(slide)}
       <div class="menu-table-wrap">
-        <div class="menu-table-title">🍽️ Serving List</div>
+        <div class="menu-table-title">🧾 Kitchen Register</div>
         <div class="table-scroll">
           <table>
             <thead><tr>${(slide.columns || []).map(col => `<th>${escapeHtml(col)}</th>`).join("")}</tr></thead>
