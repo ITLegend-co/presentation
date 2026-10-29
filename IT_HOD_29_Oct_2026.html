@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#17352d" />
+  <title>IT Kitchen — HOD Update</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink: #f8f0d8;
+  --muted: #d9c9a7;
+  --chalk: #f7f1dc;
+  --board: #16392f;
+  --board-deep: #0d2922;
+  --board-soft: #245245;
+  --cream: #fff7e6;
+  --paper: #fffaf0;
+  --paper-line: #dfc89b;
+  --red: #df4c34;
+  --mustard: #e0aa35;
+  --green: #5ca06d;
+  --blue: #5a9ab5;
+  --purple: #8a70a8;
+  --orange: #d9813d;
+  --brown: #704731;
+  --wood1: #a96f45;
+  --wood2: #bd8050;
+  --wood3: #8e5a37;
+  --shadow: 0 24px 55px rgba(28, 17, 8, .28);
+  --paper-shadow: 0 14px 28px rgba(49, 30, 14, .18);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", Arial, sans-serif;
+  color: #31251c;
+  background:
+    linear-gradient(rgba(255,255,255,.04), rgba(0,0,0,.04)),
+    repeating-linear-gradient(
+      90deg,
+      var(--wood1) 0 150px,
+      #9a613d 150px 154px,
+      var(--wood2) 154px 305px,
+      #a66b42 305px 309px,
+      var(--wood3) 309px 460px,
+      #7d4d30 460px 464px
+    );
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .22;
+  background:
+    repeating-linear-gradient(2deg, rgba(53,26,11,.12) 0 1px, transparent 1px 8px),
+    linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+}
+
+button { font: inherit; }
+
+/* ---------- START SCREEN ---------- */
+
+body.presentation-locked { overflow: hidden; }
+
+.start-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255,255,255,.08), transparent 28%),
+    linear-gradient(rgba(8,30,24,.94), rgba(8,30,24,.98)),
+    repeating-linear-gradient(0deg, transparent 0 48px, rgba(255,255,255,.025) 48px 49px);
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+.start-screen::before {
+  content: "";
+  position: absolute;
+  inset: 26px;
+  border: 2px solid rgba(244,231,190,.18);
+  border-radius: 34px;
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,.015);
+  pointer-events: none;
+}
+
+.start-kitchen-card {
+  width: min(760px, 92vw);
+  padding: clamp(30px, 5vw, 56px);
+  border: 2px solid rgba(249,238,207,.36);
+  border-radius: 28px;
+  text-align: center;
+  color: var(--chalk);
+  background:
+    linear-gradient(rgba(255,255,255,.025), rgba(0,0,0,.06)),
+    var(--board);
+  box-shadow: 0 35px 70px rgba(0,0,0,.38);
+  position: relative;
+  overflow: hidden;
+}
+
+.start-kitchen-card::after {
+  content: "✦  ✦  ✦";
+  position: absolute;
+  right: 26px;
+  bottom: 18px;
+  color: rgba(255,245,212,.18);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.5rem;
+  letter-spacing: .25em;
+}
+
+.start-sign {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 2px solid rgba(255,241,203,.6);
+  border-radius: 999px;
+  font-family: "Fredoka", sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #f6df9e;
+}
+
+.start-cloche {
+  margin: 18px auto 8px;
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  filter: drop-shadow(0 13px 12px rgba(0,0,0,.3));
+  animation: clocheFloat 3s ease-in-out infinite;
+}
+
+.start-presentation-btn {
+  display: grid;
+  gap: 5px;
+  width: min(560px, 100%);
+  margin: 0 auto;
+  padding: 20px 30px;
+  border: 3px solid #f6d56f;
+  border-radius: 18px;
+  color: #2d2419;
+  background: linear-gradient(145deg, #f6d56f, #e4ad39);
+  box-shadow: 0 15px 0 #9a6821, 0 25px 32px rgba(0,0,0,.24);
+  cursor: pointer;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(1.55rem, 4vw, 3.15rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.start-presentation-btn small {
+  font-family: "Patrick Hand", cursive;
+  font-size: clamp(.95rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  opacity: .72;
+}
+
+.start-presentation-btn:hover,
+.start-presentation-btn:focus-visible {
+  outline: none;
+  transform: translateY(-6px) rotate(-.5deg);
+  box-shadow: 0 20px 0 #9a6821, 0 31px 38px rgba(0,0,0,.28);
+}
+
+.start-presentation-btn:active {
+  transform: translateY(7px);
+  box-shadow: 0 7px 0 #9a6821, 0 14px 20px rgba(0,0,0,.22);
+}
+
+.start-screen.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.start-screen.is-leaving .start-kitchen-card {
+  animation: ticketExit .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+body:not(.presentation-started) .deck-shell {
+  transform: scale(.985);
+  filter: blur(5px);
+}
+
+body.presentation-started .deck-shell {
+  animation: serviceReveal .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* ---------- BACKGROUND PROPS ---------- */
+
+.table-prop {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 12px rgba(48,25,11,.22));
+}
+
+.prop-lemon {
+  top: -16px;
+  left: -18px;
+  font-size: 4.8rem;
+  transform: rotate(-18deg);
+}
+
+.prop-leaf {
+  right: 8px;
+  bottom: 10px;
+  font-size: 4rem;
+  transform: rotate(8deg);
+}
+
+.prop-napkin {
+  right: -24px;
+  top: -2px;
+  width: 160px;
+  height: 150px;
+  opacity: .58;
+  transform: rotate(5deg);
+  background:
+    linear-gradient(45deg, #fff 25%, transparent 25% 75%, #fff 75%),
+    linear-gradient(45deg, #fff 25%, #d94b37 25% 75%, #fff 75%);
+  background-position: 0 0, 14px 14px;
+  background-size: 28px 28px;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 62%);
+  z-index: -1;
+}
+
+/* ---------- LAYOUT ---------- */
+
+.deck-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 288px minmax(0, 1fr);
+}
+
+.sidebar {
+  position: sticky;
+  top: 18px;
+  height: calc(100vh - 36px);
+  margin: 18px 0 18px 18px;
+  padding: 20px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 4px solid #543621;
+  border-radius: 22px;
+  color: var(--chalk);
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 34px),
+    linear-gradient(150deg, #1b4539, #0f3028);
+  box-shadow: var(--shadow), inset 0 0 0 2px rgba(255,255,255,.04);
+  transition: transform .25s ease, margin-left .25s ease;
+}
+
+.sidebar.hidden {
+  margin-left: -288px;
+  transform: translateX(-8px);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  background: #f2d06e;
+  box-shadow: 0 7px 0 #a77023;
+}
+
+.brand-kicker {
+  margin: 0 0 2px;
+  color: #f4d27a;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.08rem;
+}
+
+.brand-block h1 {
+  margin: 0;
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.05;
+}
+
+.sidebar-note {
+  align-self: flex-end;
+  width: 145px;
+  padding: 10px 13px;
+  color: #382817;
+  background: #f4d76c;
+  box-shadow: 0 8px 0 #a97629;
+  transform: rotate(1.8deg);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.04rem;
+  line-height: 1.03;
+}
+
+.slide-nav {
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  gap: 7px;
+  padding-right: 4px;
+}
+
+.slide-nav::-webkit-scrollbar { width: 7px; }
+.slide-nav::-webkit-scrollbar-thumb {
+  background: rgba(247,239,215,.2);
+  border-radius: 99px;
+}
+
+.slide-nav button {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px dashed rgba(249,239,212,.16);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 9px;
+  align-items: center;
+  text-align: left;
+  color: #ece1c4;
+  background: rgba(255,255,255,.025);
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.slide-nav button:hover {
+  transform: translateX(5px);
+  background: rgba(255,255,255,.07);
+}
+
+.slide-nav button.active {
+  color: #2d2419;
+  border-color: #f2d06e;
+  background: #f2d06e;
+  transform: translateX(6px);
+}
+
+.nav-food {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  font-size: 1.1rem;
+}
+
+.slide-nav button.active .nav-food { background: rgba(255,255,255,.45); }
+
+.nav-copy {
+  display: grid;
+  gap: 1px;
+  font-weight: 900;
+  line-height: 1.06;
+}
+
+.nav-copy small {
+  color: inherit;
+  opacity: .6;
+  font-size: .66rem;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  display: grid;
+  gap: 4px;
+  border-top: 1px dashed rgba(247,239,215,.22);
+  color: #d9c9a7;
+  font-size: .76rem;
+}
+
+.presentation {
+  min-width: 0;
+  padding: 18px 22px 22px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 13px;
+}
+
+.topbar {
+  position: sticky;
+  top: 10px;
+  z-index: 10;
+  padding: 9px 11px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid #5f422c;
+  border-radius: 15px;
+  background: rgba(255,248,231,.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 18px rgba(67,38,18,.14);
+}
+
+.icon-btn,
+.ghost-btn,
+.sound-btn,
+.control-btn {
+  padding: 9px 13px;
+  border: 2px solid #6d4d34;
+  border-radius: 12px;
+  color: #35271d;
+  background: #fff8e7;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #c8a174;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.icon-btn:hover,
+.ghost-btn:hover,
+.sound-btn:hover,
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #c8a174;
+}
+
+.progress-wrap {
+  flex: 1;
+  min-width: 90px;
+}
+
+.progress-label {
+  display: block;
+  margin-bottom: 3px;
+  color: #6d503b;
+  font-family: "Patrick Hand", cursive;
+  font-size: .82rem;
+}
+
+.progress-track {
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid #d5bd92;
+  border-radius: 99px;
+  background: #ecddbc;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 99px;
+  background: repeating-linear-gradient(90deg, #4e8d62 0 40px, #e0aa35 40px 80px, #d9533c 80px 120px);
+  background-size: 120px 100%;
+  animation: serviceBar 5s linear infinite;
+}
+
+.slide-count {
+  min-width: 46px;
+  text-align: center;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+}
+
+.sound-btn {
+  min-width: 112px;
+  border-color: #97772f;
+  background: #f5df8d;
+}
+
+.sound-btn.muted {
+  color: #78695f;
+  border-color: #a39484;
+  background: #e7ddd1;
+  box-shadow: none;
+}
+
+/* ---------- SLIDES ---------- */
+
+.slide-stage { min-width: 0; overflow: visible; }
+
+.slide {
+  min-height: calc(100vh - 164px);
+  position: relative;
+  border-radius: 24px;
+  animation: orderIn .45s ease both;
+}
+
+.wood-board-slide {
+  padding: clamp(24px, 3vw, 40px);
+  border: 5px solid #52351f;
+  color: var(--chalk);
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 39px),
+    linear-gradient(145deg, #19463a, #0f3028);
+  box-shadow: var(--shadow), inset 0 0 0 2px rgba(255,255,255,.03);
+}
+
+.wood-board-slide::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(248,236,201,.13);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.slide-header {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.paper-label {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-bottom: 8px;
+  color: #302418;
+  background: #f2d06e;
+  box-shadow: 0 5px 0 #a97527;
+  transform: rotate(-1deg);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.03rem;
+  font-weight: 700;
+}
+
+.slide-header h2,
+.closing-food-slide h2 {
+  margin: 0;
+  color: #fff6dc;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(2rem, 4.6vw, 4.25rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.slide-header p {
+  margin: 8px 0 0;
+  max-width: 920px;
+  color: #d9cbaa;
+  font-size: clamp(.98rem, 1.5vw, 1.16rem);
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* ---------- HERO / MENU BOARD ---------- */
+
+.hero-bento {
+  padding: clamp(24px, 3.5vw, 44px);
+  border: 5px solid #54351f;
+  background:
+    linear-gradient(rgba(255,250,235,.95), rgba(241,221,184,.95)),
+    repeating-linear-gradient(90deg, transparent 0 54px, rgba(94,54,28,.05) 54px 55px);
+  box-shadow: var(--shadow);
+}
+
+.kitchen-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(420px, 1.15fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.kitchen-copy {
+  padding: 12px 4px 12px 10px;
+}
+
+.open-sign {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: white;
+  background: #d94c38;
+  font-family: "Fredoka", sans-serif;
+  font-size: .78rem;
+  letter-spacing: .1em;
+}
+
+.hero-kicker {
+  margin: 0 0 5px;
+  color: #7b4a32;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.22rem;
+}
+
+.kitchen-copy h2 {
+  margin: 0;
+  color: #17352d;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: .82;
+  letter-spacing: -.06em;
+}
+
+.kitchen-copy h3 {
+  margin: 14px 0 0;
+  max-width: 560px;
+  color: #5d3c2a;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.05;
+}
+
+.meeting-date {
+  display: inline-block;
+  margin-top: 13px;
+  padding: 7px 12px;
+  border: 2px dashed #ae8654;
+  background: #fff9eb;
+  font-weight: 900;
+}
+
+.chef-note {
+  margin-top: 17px;
+  max-width: 520px;
+  padding: 11px 13px;
+  border-left: 5px solid #e0aa35;
+  background: #fff8e5;
+  color: #5b402d;
+  box-shadow: var(--paper-shadow);
+  transform: rotate(-.5deg);
+}
+
+.special-board {
+  padding: 20px;
+  border: 5px solid #54351f;
+  border-radius: 20px;
+  color: var(--chalk);
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 38px),
+    linear-gradient(145deg, #18483b, #0e2e26);
+  box-shadow: 0 20px 30px rgba(45,27,14,.22), inset 0 0 0 2px rgba(255,255,255,.03);
+  transform: rotate(.4deg);
+}
+
+.board-pin {
+  display: table;
+  margin: 0 auto 14px;
+  padding: 5px 13px;
+  color: #2c2218;
+  background: #f2d06e;
+  box-shadow: 0 5px 0 #a97527;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transform: rotate(-1deg);
+}
+
+.menu-shortcut {
+  width: 100%;
+  padding: 10px 10px;
+  border: 0;
+  border-bottom: 1px dashed rgba(248,239,213,.22);
+  display: grid;
+  grid-template-columns: 35px 38px 1fr 22px;
+  gap: 9px;
+  align-items: center;
+  color: #f6eed5;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .16s ease, background .16s ease;
+}
+
+.menu-shortcut:last-child { border-bottom: 0; }
+
+.menu-shortcut:hover,
+.menu-shortcut:focus-visible {
+  outline: none;
+  transform: translateX(7px);
+  background: rgba(255,255,255,.06);
+}
+
+.menu-number {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #2c2218;
+  background: #f2d06e;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+}
+
+.menu-icon { font-size: 1.3rem; }
+
+.menu-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.menu-copy strong {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1rem;
+}
+
+.menu-copy small {
+  color: #cfc1a2;
+  font-size: .74rem;
+}
+
+.menu-arrow {
+  color: #f2d06e;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.hero-foot {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  color: #684632;
+  font-weight: 800;
+}
+
+.napkin-copy {
+  padding: 7px 10px;
+  border: 1px dashed #9d7753;
+  background: #fff7e6;
+  font-family: "Patrick Hand", cursive;
+  transform: rotate(-.8deg);
+}
+
+/* ---------- SUMMARY ---------- */
+
+.red-tray {
+  position: relative;
+  z-index: 1;
+  padding: 13px;
+  border: 3px solid #71503a;
+  border-radius: 18px;
+  background: rgba(255,255,255,.035);
+}
+
+.summary-tray {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat-food-card {
+  min-height: 152px;
+  padding: 14px 11px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  border: 2px solid #dac294;
+  border-radius: 12px;
+  color: #382b20;
+  background:
+    repeating-linear-gradient(0deg, #fffaf0 0 27px, #ead9b9 28px 29px);
+  box-shadow: 0 8px 0 #a27d4f;
+  transition: transform .16s ease;
+}
+
+.stat-food-card:hover { transform: translateY(-6px) rotate(-.5deg); }
+
+.stat-food { font-size: 2.25rem; }
+
+.stat-food-card strong {
+  margin-top: 4px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.35rem;
+  line-height: .95;
+}
+
+.stat-food-card span {
+  margin-top: 5px;
+  font-size: .82rem;
+  font-weight: 900;
+  line-height: 1.06;
+}
+
+.tone-success strong { color: #3b8451; }
+.tone-warning strong { color: #bd762e; }
+.tone-info strong { color: #4a839b; }
+.tone-purple strong { color: #765c91; }
+
+.recipe-card {
+  position: relative;
+  z-index: 1;
+  margin-top: 17px;
+  padding: 20px 23px;
+  border: 2px solid #dcc596;
+  color: #453326;
+  background:
+    repeating-linear-gradient(0deg, #fffaf0 0 29px, #ead9b9 30px 31px);
+  box-shadow: var(--paper-shadow);
+  transform: rotate(.15deg);
+}
+
+.recipe-card::before {
+  content: "CHEF'S NOTES";
+  position: absolute;
+  right: 18px;
+  top: -13px;
+  padding: 4px 10px;
+  color: #302418;
+  background: #f2d06e;
+  box-shadow: 0 4px 0 #a97527;
+  font-family: "Patrick Hand", cursive;
+  font-size: .86rem;
+  font-weight: 700;
+  transform: rotate(2deg);
+}
+
+.recipe-card h3 {
+  margin: 0;
+  color: #17352d;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.75rem;
+}
+
+.recipe-pin { display: none; }
+
+/* ---------- CARDS ---------- */
+
+.food-card-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  gap: 14px;
+}
+
+.food-card-grid.single { grid-template-columns: 1fr; }
+
+.food-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #d5bb8e;
+  border-radius: 11px;
+  color: #3d2e22;
+  background: #fff9eb;
+  box-shadow: 0 9px 0 #9d774d, var(--paper-shadow);
+  transition: transform .17s ease, box-shadow .17s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-6px) rotate(-.25deg);
+  box-shadow: 0 14px 0 #9d774d, 0 22px 28px rgba(0,0,0,.15);
+}
+
+.food-card-top {
+  min-height: 84px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 11px;
+  align-items: center;
+  border-bottom: 2px dashed #ddc797;
+  background: #fff3d4;
+}
+
+.food-icon-bowl {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #d8bd8c;
+  border-radius: 50%;
+  background: white;
+  font-size: 2.15rem;
+}
+
+.food-card-title h3 {
+  margin: 0 0 6px;
+  color: #17352d;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.05;
+}
+
+.food-card-body { padding: 3px 14px 15px; }
+
+.card-corner {
+  position: absolute;
+  right: -9px;
+  bottom: -9px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff7e3;
+  background: #d94c38;
+}
+
+/* ---------- LISTS / BADGES ---------- */
+
+.clean-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.clean-list li {
+  position: relative;
+  padding-left: 23px;
+  color: inherit;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.clean-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #4d9761;
+  font-weight: 1000;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  font-size: .68rem;
+  font-weight: 1000;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.badge.success { color: #3d8451; background: #e8f3e8; }
+.badge.warning { color: #b66d25; background: #fff0ce; }
+.badge.info { color: #4e8296; background: #e6f2f5; }
+.badge.purple { color: #725889; background: #efe9f7; }
+.badge.neutral { color: #74665a; background: #eee7de; }
+
+/* ---------- TIMELINE / KITCHEN CHECK ---------- */
+
+.serving-line {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+}
+
+.serving-step {
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 66px 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  border: 2px solid #d7bf91;
+  border-radius: 10px;
+  color: #3e3024;
+  background:
+    repeating-linear-gradient(0deg, #fffaf0 0 27px, #ead9b9 28px 29px);
+  box-shadow: 0 8px 0 #9c774e;
+  transition: transform .16s ease;
+}
+
+.serving-step:hover { transform: translateX(7px); }
+
+.serving-food {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #d8bd8c;
+  border-radius: 50%;
+  background: white;
+  font-size: 2.15rem;
+}
+
+.serving-number {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #2c241a;
+  background: #f2d06e;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+}
+
+.timeline-title-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.timeline-title-row h3,
+.serving-copy h3,
+.ticket-content h3 {
+  margin: 0;
+  color: #17352d;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.08rem;
+}
+
+.serving-copy p {
+  margin: 5px 0 0;
+  color: #5f4c3e;
+  line-height: 1.46;
+  font-weight: 700;
+}
+
+/* ---------- TABLE / RECEIPT ---------- */
+
+.menu-table-wrap {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 2px solid #d4bc90;
+  border-radius: 10px;
+  color: #3d2f24;
+  background: #fffaf0;
+  box-shadow: 0 10px 0 #9c774e, var(--paper-shadow);
+}
+
+.menu-table-title {
+  padding: 10px 15px;
+  color: #2e241b;
+  background: #f2d06e;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.table-scroll { overflow-x: auto; }
+
+table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px dashed #d7bf91;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+th {
+  color: #17352d;
+  background: #fff1cf;
+  font-family: "Fredoka", sans-serif;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+td { font-weight: 700; }
+
+tbody tr:hover td { background: #fff4db; }
+
+.row-food {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border: 2px solid #d9bf90;
+  border-radius: 50%;
+  background: white;
+  vertical-align: middle;
+}
+
+/* ---------- ACTION TICKETS ---------- */
+
+.ticket-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 13px;
+}
+
+.order-ticket {
+  position: relative;
+  min-height: 140px;
+  padding: 14px 14px 14px 61px;
+  border: 2px solid #d2b88b;
+  border-radius: 7px;
+  color: #3e3024;
+  background:
+    repeating-linear-gradient(0deg, #fffaf0 0 26px, #ead9b9 27px 28px);
+  box-shadow: 0 9px 0 #9b764d, var(--paper-shadow);
+  transform: rotate(-.25deg);
+  transition: transform .16s ease;
+}
+
+.order-ticket:nth-child(even) { transform: rotate(.25deg); }
+.order-ticket:hover { transform: translateY(-5px) rotate(0); }
+
+.order-ticket::before {
+  content: "";
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  border-left: 2px dashed #e2a49a;
+}
+
+.ticket-number {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #c94d38;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.65rem;
+}
+
+.ticket-content h3 { padding-right: 92px; }
+
+.ticket-meta {
+  margin-top: 11px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  color: #665142;
+  font-size: .82rem;
+}
+
+.order-ticket > .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.control-btn.primary {
+  color: #2e241b;
+  border-color: #9c7424;
+  background: #f2d06e;
+}
+
+.control-btn:disabled {
+  opacity: .38;
+  cursor: not-allowed;
+}
+
+/* ---------- CLOSING ---------- */
+
+.closing-food-slide {
+  min-height: calc(100vh - 164px);
+  padding: clamp(30px, 5vw, 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 5px solid #54351f;
+  color: #31251c;
+  background: linear-gradient(#fff8e7, #ecd5aa);
+  box-shadow: var(--shadow);
+}
+
+.closing-food-slide h2 { color: #17352d; }
+
+.dessert-plate {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 10px;
+  display: grid;
+  place-items: center;
+  border: 12px solid #f2dfb7;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 13px 20px rgba(62,36,17,.18);
+  font-size: 5.5rem;
+  animation: dessertFloat 4s ease-in-out infinite;
+}
+
+.closing-subtitle {
+  color: #6e513c;
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+.closing-note {
+  max-width: 820px;
+  margin-top: 14px;
+  padding: 17px 20px;
+  text-align: left;
+  border: 2px solid #d7bd8d;
+  background:
+    repeating-linear-gradient(0deg, #fffaf0 0 28px, #ead9b9 29px 30px);
+  box-shadow: var(--paper-shadow);
+}
+
+.closing-note h3 {
+  margin: 0;
+  color: #17352d;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.5rem;
+}
+
+.thank-you-sticker {
+  margin-top: 18px;
+  padding: 8px 14px;
+  color: #2d2419;
+  background: #f2d06e;
+  box-shadow: 0 6px 0 #a97527;
+  transform: rotate(-2deg);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.35rem;
+}
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes clocheFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes ticketExit {
+  to { opacity: 0; transform: translateY(-35px) scale(.92) rotate(-1deg); }
+}
+
+@keyframes serviceReveal {
+  from { opacity: 0; transform: scale(.97); filter: blur(6px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes orderIn {
+  from { opacity: 0; transform: translateY(14px) scale(.992); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dessertFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes serviceBar {
+  from { background-position: 0 0; }
+  to { background-position: 120px 0; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1100px) {
+  .deck-shell { grid-template-columns: 1fr; }
+
+  .sidebar {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    width: 288px;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0 22px 22px 0;
+  }
+
+  .sidebar.hidden {
+    margin-left: 0;
+    transform: translateX(-100%);
+  }
+
+  .presentation { padding: 14px; }
+
+  .kitchen-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-tray {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .table-prop { display: none; }
+
+  .topbar { flex-wrap: wrap; }
+  .progress-wrap { order: 3; flex-basis: 100%; }
+  .sound-btn { min-width: 102px; padding-inline: 9px; }
+  .ghost-btn { margin-left: auto; }
+
+  .hero-bento,
+  .wood-board-slide {
+    padding: 20px;
+  }
+
+  .kitchen-copy h2 {
+    font-size: clamp(3.2rem, 18vw, 5.6rem);
+  }
+
+  .special-board { padding: 14px; }
+
+  .menu-shortcut {
+    grid-template-columns: 31px 32px 1fr 18px;
+    padding-inline: 5px;
+  }
+
+  .summary-tray { grid-template-columns: 1fr 1fr; }
+
+  .food-card-grid,
+  .ticket-grid { grid-template-columns: 1fr; }
+
+  .serving-step {
+    grid-template-columns: 54px 34px 1fr;
+    padding: 10px;
+  }
+
+  .serving-food {
+    width: 50px;
+    height: 50px;
+    font-size: 1.85rem;
+  }
+
+  .ticket-meta { grid-template-columns: 1fr; }
+
+  .controls {
+    position: sticky;
+    bottom: 8px;
+    z-index: 12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    color: black;
+    background: white;
+  }
+
+  body::before,
+  .table-prop,
+  .start-screen,
+  .sidebar,
+  .topbar,
+  .controls {
+    display: none !important;
+  }
+
+  .deck-shell,
+  .presentation {
+    display: block;
+    padding: 0;
+  }
+
+  .slide {
+    min-height: auto;
+    page-break-after: always;
+    border: 0;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .hero-bento,
+  .wood-board-slide,
+  .closing-food-slide {
+    color: black;
+    background: white;
+  }
+
+  .slide-header h2,
+  .slide-header p,
+  .closing-food-slide h2 {
+    color: black !important;
+  }
+}
+
+</style>
+</head>
+<body class="presentation-locked">
+  <div class="start-screen" id="startScreen" role="dialog" aria-modal="true" aria-label="Start presentation">
+    <div class="start-kitchen-card">
+      <div class="start-sign">MOUNTAIN TORQ · IT KITCHEN</div>
+      <div class="start-cloche" aria-hidden="true">🍽️</div>
+      <button class="start-presentation-btn" id="startPresentation" type="button">
+        <span>OPEN THE IT KITCHEN</span>
+        <small>Today's HOD service is ready</small>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-prop prop-lemon" aria-hidden="true">🍋</div>
+  <div class="table-prop prop-leaf" aria-hidden="true">🌿</div>
+  <div class="table-prop prop-napkin" aria-hidden="true"></div>
+
+  <div class="deck-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">👨‍🍳</div>
+        <div>
+          <p class="brand-kicker">IT Kitchen</p>
+          <h1 id="deckTitleSide">IT Update</h1>
+        </div>
+      </div>
+
+      <div class="sidebar-note">Fresh updates.<br><strong>Served clearly.</strong> 🍽️</div>
+
+      <nav id="slideNav" class="slide-nav" aria-label="Slide navigation"></nav>
+
+      <div class="sidebar-footer">
+        <span id="preparedBy"></span>
+        <span id="reportDate"></span>
+      </div>
+    </aside>
+
+    <main class="presentation">
+      <div class="topbar">
+        <button class="icon-btn" id="toggleSidebar" title="Toggle menu">☰ Menu</button>
+        <div class="progress-wrap">
+          <span class="progress-label">Service progress</span>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+        <div class="slide-count"><span id="currentSlide">1</span>/<span id="totalSlides">1</span></div>
+        <button class="sound-btn" id="soundToggle" type="button" aria-pressed="true" title="Turn presentation sounds on or off">🔊 Sound On</button>
+        <button class="ghost-btn" onclick="window.print()">🧾 Print / PDF</button>
+      </div>
+
+      <section id="slideStage" class="slide-stage" aria-live="polite"></section>
+
+      <div class="controls">
+        <button id="prevBtn" class="control-btn">← Previous course</button>
+        <button id="nextBtn" class="control-btn primary">Next course →</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+/*
+  HOD IT UPDATE PRESENTATION
+  Reporting window: 2 October 2026 - 28 October 2026
+  HOD meeting: 29 October 2026, 10:00 AM
+*/
+
+const deckData = {
+  title: "IT Update & Progress",
+  subtitle: "IT support, infrastructure, systems, security, maintenance and upcoming implementation work.",
+  preparedBy: "Prepared by: IT Department",
+  reportDate: "HOD Meeting: 29 October 2026 · 10:00 AM",
+  company: "Mountain Torq Sdn. Bhd.",
+  slides: [
+    {
+      type: "hero",
+      label: "Cover",
+      title: "IT Update & Progress",
+      eyebrow: "Head of Department Update",
+      subtitle: "Reporting period: 2–28 October 2026. October results, active monitoring and November implementation priorities.",
+      chips: ["Support", "Connectivity", "Systems", "Security", "Maintenance", "November Plan"]
+    },
+    {
+      type: "summary",
+      label: "Overview",
+      title: "October IT Overview",
+      subtitle: "The main changes since the 1 October 2026 HOD meeting.",
+      stats: [
+        { value: "2", label: "Sites PM 100% Complete", tone: "success" },
+        { value: "60%", label: "KK PM Complete", tone: "warning" },
+        { value: "1 vs 3", label: "U Mobile vs Unifi Outages", tone: "info" },
+        { value: "3", label: "Major November Actions", tone: "purple" },
+        { value: "0", label: "Major Trend Micro Alerts", tone: "success" }
+      ],
+      highlights: [
+        "PH and KP preventive maintenance are fully completed; KK Office is 60% completed.",
+        "PH backup internet has been installed and the HK Team was briefed by Eizzat on when and how to use it.",
+        "During the KP monitoring period, U Mobile had 1 reported signal-loss outage while Unifi had 3 reported outages.",
+        "Spam email reports have reduced compared with last month and remain under monitoring.",
+        "A PHP2Shell vulnerability review was completed for the main internal systems and relevant external services; no PHP dependency was identified in the reviewed internal GitHub systems.",
+        "Info-Tech was successfully renewed; the next renewal date is 16 October 2027.",
+        "The paid/full Odoo version will not proceed. The free version remains sufficient for the current internal reporting and payment-tracking requirement.",
+        "Accounts System development is scheduled to begin on 11 November 2026.",
+        "The company website is targeted for launch before 15 November 2026, with IT supporting domain implementation through IPServerOne."
+      ]
+    },
+    {
+      type: "cards",
+      label: "Served",
+      title: "Completed / Closed This Month",
+      subtitle: "October items that are now completed, implemented or closed from further paid evaluation.",
+      cards: [
+        {
+          title: "PH Backup Internet",
+          status: "Completed",
+          tone: "success",
+          details: [
+            "Backup internet has been installed at Pendant Hut.",
+            "Eizzat briefed the HK Team on when the backup connection should be used and how to activate it.",
+            "The backup connection is now available for operational use when the main connection is unavailable."
+          ]
+        },
+        {
+          title: "IT Equipment Warranty Review",
+          status: "Completed",
+          tone: "success",
+          details: [
+            "All warranty records in the IT inventory were reviewed.",
+            "No faulty IT assets were identified during the review.",
+            "Warranty information will continue to be maintained as part of the IT inventory process."
+          ]
+        },
+        {
+          title: "Info-Tech Renewal",
+          status: "Renewed",
+          tone: "success",
+          details: [
+            "The Info-Tech subscription was successfully renewed.",
+            "Next renewal date: 16 October 2027.",
+            "No further renewal action is required at this stage."
+          ]
+        },
+        {
+          title: "Odoo Full-Version Evaluation",
+          status: "Closed / No Paid Upgrade",
+          tone: "success",
+          details: [
+            "The full version was tested and reviewed with Accounts.",
+            "The POS requirement is adequately covered without proceeding to the paid full version.",
+            "Inventory will be handled under the separate internal system project.",
+            "Recommendation: continue using the free Odoo version for current internal reporting and customer-payment tracking."
+          ]
+        }
+      ]
+    },
+    {
+      type: "cards",
+      label: "Support & Security",
+      title: "Support & Security Update",
+      subtitle: "Current user-support and security matters that still require monitoring.",
+      cards: [
+        {
+          title: "Spam Email / IPServerOne",
+          status: "Monitoring / Improved",
+          tone: "info",
+          details: [
+            "Spam email remains under monitoring.",
+            "Based on staff feedback, the number of spam reports has reduced compared with last month.",
+            "IT will continue monitoring and will follow up with IPServerOne again if the volume increases."
+          ]
+        },
+        {
+          title: "Trend Micro / Antivirus",
+          status: "Normal / Monitoring",
+          tone: "success",
+          details: [
+            "No major Trend Micro security alert has been detected since the previous HOD meeting.",
+            "Endpoint protection remains active.",
+            "Continue routine security monitoring and scheduled checks."
+          ]
+        },
+        {
+          title: "PHP2Shell Vulnerability Review",
+          status: "Reviewed / Follow-Up",
+          tone: "success",
+          details: [
+            "The reviewed internal GitHub-hosted systems did not contain PHP files or Composer dependencies.",
+            "GitHub static hosting does not execute PHP, and the standard Odoo backend is Python-based rather than PHP-based.",
+            "IPServerOne confirmed that email-side patches had been applied.",
+            "SQL Payroll desktop / Firebird is not directly affected; PHP exposure for cloud / HRMS components remains subject to provider confirmation.",
+            "External software and hosting components that are not controlled internally will continue to be verified with the relevant vendors where required."
+          ]
+        },
+        {
+          title: "PHP2Shell Vulnerability Check",
+          status: "Review Ongoing",
+          tone: "warning",
+          details: [
+            "IPServerOne: Complete (safe). Relevant email-hosting PHP security updates have been applied; PHP 8.2.35 includes the listed CVE-2026-109618 and CVE-2026-109619 updates.",
+            "GitHub website hosting: Complete (safe). Static HTML, CSS and JavaScript hosting does not execute PHP.",
+            "Odoo: Complete (safe). The standard hosted POS is not expected to be directly affected because Odoo's backend uses Python rather than PHP.",
+            "ABSS: In Progress. ABSS advised there is no identified risk to end-users while its backend team continues reviewing affected backend services.",
+            "SQL: In Progress. SQL support advised that its system is not using PHP coding; further vendor confirmation remains under follow-up."
+          ]
+        },
+        {
+          title: "General IT Support",
+          status: "Ongoing",
+          tone: "info",
+          details: [
+            "Continue normal user support, device troubleshooting and IT assistance across KK, KP and PH.",
+            "Recurring or business-impacting issues will continue to be escalated and reported separately."
+          ]
+        }
+      ]
+    },
+    {
+      type: "cards",
+      label: "Connectivity",
+      title: "Connectivity & Remote Access",
+      subtitle: "Internet reliability, backup connectivity and current remote-access troubleshooting.",
+      cards: [
+        {
+          title: "KP U Mobile vs Unifi Monitoring",
+          status: "Monitoring Until 7 Nov",
+          tone: "info",
+          details: [
+            "U Mobile remains the primary connection with Unifi as backup during the monitoring period.",
+            "Since U Mobile installation, U Mobile has had 1 reported outage caused by signal loss.",
+            "During the same period, Unifi has had 3 reported outages.",
+            "Monitoring continues until 7 November 2026 before the final connectivity recommendation is made."
+          ]
+        },
+        {
+          title: "MT Office VPN",
+          status: "Troubleshooting",
+          tone: "warning",
+          details: [
+            "Local VPN connection is working.",
+            "Office NAS access through the VPN is working.",
+            "Split tunnelling is working.",
+            "External VPN users still receive Windows Error 809.",
+            "Current troubleshooting is focused on the IPsec NAT-T / UDP 4500 communication path through the GN630V and TL-ER6120."
+          ]
+        },
+        {
+          title: "KP CrossChex / Anviz Remote Access",
+          status: "Operational / Monitoring",
+          tone: "success",
+          details: [
+            "The network configuration was updated after the previous Unifi credential change.",
+            "Continue verifying remote attendance and related access reliability during normal operations."
+          ]
+        },
+        {
+          title: "PH CCTV",
+          status: "KIV",
+          tone: "neutral",
+          details: [
+            "The project remains on hold pending further Management direction.",
+            "No installation work will proceed until approval is given."
+          ]
+        }
+      ]
+    },
+    {
+      type: "timeline",
+      label: "Maintenance",
+      title: "Preventive Maintenance Progress",
+      subtitle: "Actual October PM completion by site, plus remaining KK Office work.",
+      items: [
+        {
+          title: "Pendant Hut",
+          tag: "100% Completed",
+          details: "All planned PH IT preventive-maintenance work has been completed."
+        },
+        {
+          title: "Kinabalu Park",
+          tag: "100% Completed",
+          details: "All planned KP IT preventive-maintenance work has been completed."
+        },
+        {
+          title: "KK Office",
+          tag: "60% Completed",
+          details: "Remaining work includes network equipment preventive maintenance, alarm-system checks and several computers in the KK Office."
+        },
+        {
+          title: "Warranty Review",
+          tag: "Completed",
+          details: "All IT inventory warranty records were reviewed and no faulty assets were identified."
+        }
+      ]
+    },
+    {
+      type: "timeline",
+      label: "Systems",
+      title: "IT Systems & Implementation",
+      subtitle: "Internal systems currently being implemented, developed or prepared for November.",
+      items: [
+        {
+          title: "KP Dispatcher PC / SmartPTT",
+          tag: "November Rollout",
+          details: "SOPs for PH Trainer, KP Dispatcher and KK Dispatcher/server station are completed. The briefing presentation has been drafted and the trainer SOP has been finalised. Next steps are KP PC installation, staff briefing, test run and daily SOP implementation in November. Dispatcher PC must be switched off after operational activity ends."
+        },
+        {
+          title: "Accounts System",
+          tag: "Starts 11 Nov",
+          details: "The system workflow has already been discussed with Accounts. Development is scheduled to begin on 11 November 2026 following the agreed workflow."
+        },
+        {
+          title: "Mountain Torq IT Helpdesk",
+          tag: "Development / Testing",
+          details: "Core ticketing functions, user roles, assignment/resolution workflow, attachments, notifications and reporting are in place. Current work focuses on ticket-submission reliability, permissions and desktop/mobile behaviour."
+        },
+        {
+          title: "Odoo",
+          tag: "Paid Upgrade Closed",
+          details: "The paid full version will not proceed. Continue using the free version for the current internal reporting and customer-payment tracking requirement."
+        }
+      ]
+    },
+    {
+      type: "cards",
+      label: "Website Launch",
+      title: "Company Website Launch",
+      subtitle: "IT support required for the planned website go-live before 15 November 2026.",
+      cards: [
+        {
+          title: "Launch Target",
+          status: "Before 15 Nov",
+          tone: "purple",
+          details: [
+            "The company website is expected to launch before 15 November 2026.",
+            "IT will support the launch and domain implementation."
+          ]
+        },
+        {
+          title: "IPServerOne Coordination",
+          status: "Upcoming",
+          tone: "info",
+          details: [
+            "IT will contact IPServerOne to coordinate the domain implementation and required DNS/domain changes.",
+            "The domain transition will be monitored after implementation."
+          ]
+        },
+        {
+          title: "Expected Downtime / Propagation",
+          status: "2–48 Hours",
+          tone: "warning",
+          details: [
+            "A service/domain transition window of approximately 2 to 48 hours is expected during launch.",
+            "The longer window allows for domain/DNS propagation and transition effects."
+          ]
+        }
+      ]
+    },
+    {
+      type: "table",
+      label: "Subscriptions",
+      title: "IT Subscriptions & Monitoring",
+      subtitle: "Current subscription and security items requiring ongoing tracking.",
+      columns: ["Item", "Current Status", "Next Action"],
+      rows: [
+        ["Info-Tech", "Successfully renewed.", "Next renewal: 16 October 2027."],
+        ["Trend Micro", "Active; no major alert since last HOD.", "Continue routine monitoring."],
+        ["Alarm System", "Active / previously renewed.", "Continue tracking the next renewal date in the subscription register."]
+      ]
+    },
+    {
+      type: "closing",
+      label: "Closing",
+      title: "Kitchen Closed — IT Update Served",
+      subtitle: "Reporting period: 2–28 October 2026.",
+      notes: [
+        "October focus: complete PM, improve connectivity reliability, close unnecessary paid software evaluation and prepare November system work.",
+        "November priorities: KP Dispatcher rollout, Accounts System development, website launch, remaining KK PM and continued VPN troubleshooting.",
+        "Next update will reflect the results of the 7 November KP connectivity review and November implementation work."
+      ]
+    }
+  ]
+};
+
+  </script>
+  <script>
+let currentIndex = 0;
+
+const stage = document.getElementById("slideStage");
+const nav = document.getElementById("slideNav");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const currentSlide = document.getElementById("currentSlide");
+const totalSlides = document.getElementById("totalSlides");
+const progressBar = document.getElementById("progressBar");
+const deckTitleSide = document.getElementById("deckTitleSide");
+const preparedBy = document.getElementById("preparedBy");
+const reportDate = document.getElementById("reportDate");
+const toggleSidebar = document.getElementById("toggleSidebar");
+const soundToggle = document.getElementById("soundToggle");
+const startScreen = document.getElementById("startScreen");
+const startPresentation = document.getElementById("startPresentation");
+const sidebar = document.getElementById("sidebar");
+const visibleSlides = deckData.slides.filter(slide => !slide.hidden);
+
+let audioContext = null;
+let soundEnabled = localStorage.getItem("hod-bento-sound") !== "off";
+
+function getAudioContext() {
+  if (!audioContext) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return null;
+    audioContext = new AudioCtx();
+  }
+  if (audioContext.state === "suspended") audioContext.resume();
+  return audioContext;
+}
+
+function tone(ctx, startFreq, endFreq, duration, type = "sine", volume = 0.045, delay = 0) {
+  const now = ctx.currentTime + delay;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(startFreq, now);
+  osc.frequency.exponentialRampToValueAtTime(Math.max(30, endFreq), now + duration);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + duration + 0.03);
+}
+
+function noise(ctx, duration = 0.08, volume = 0.025, delay = 0, highpass = 500) {
+  const sampleRate = ctx.sampleRate;
+  const buffer = ctx.createBuffer(1, Math.max(1, Math.floor(sampleRate * duration)), sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i += 1) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+  }
+  const src = ctx.createBufferSource();
+  const filter = ctx.createBiquadFilter();
+  const gain = ctx.createGain();
+  filter.type = "highpass";
+  filter.frequency.value = highpass;
+  gain.gain.value = volume;
+  src.buffer = buffer;
+  src.connect(filter).connect(gain).connect(ctx.destination);
+  const now = ctx.currentTime + delay;
+  src.start(now);
+  src.stop(now + duration);
+}
+
+function playEffect(name) {
+  if (!soundEnabled) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  switch (name) {
+    case "menu":
+      tone(ctx, 330, 250, 0.07, "triangle", 0.026);
+      tone(ctx, 165, 135, 0.09, "sine", 0.016, 0.025);
+      break;
+    case "next":
+      tone(ctx, 360, 520, 0.09, "triangle", 0.032);
+      tone(ctx, 520, 690, 0.09, "triangle", 0.024, 0.07);
+      noise(ctx, 0.045, 0.009, 0.025, 1100);
+      break;
+    case "prev":
+      tone(ctx, 520, 350, 0.1, "triangle", 0.03);
+      tone(ctx, 350, 245, 0.09, "triangle", 0.022, 0.07);
+      break;
+    case "bento1":
+      noise(ctx, 0.22, 0.022, 0, 1600);
+      tone(ctx, 145, 105, 0.15, "sine", 0.035, 0.02);
+      break;
+    case "bento2":
+      tone(ctx, 392, 392, 0.11, "sine", 0.034);
+      tone(ctx, 523, 523, 0.13, "sine", 0.03, 0.075);
+      break;
+    case "bento3":
+      tone(ctx, 660, 860, 0.09, "triangle", 0.03);
+      tone(ctx, 880, 1180, 0.15, "sine", 0.02, 0.07);
+      break;
+    case "bento4":
+      noise(ctx, 0.045, 0.048, 0, 2200);
+      noise(ctx, 0.035, 0.035, 0.055, 2800);
+      tone(ctx, 210, 165, 0.08, "square", 0.012);
+      break;
+    case "bento5":
+      tone(ctx, 520, 210, 0.26, "sine", 0.024);
+      tone(ctx, 390, 160, 0.22, "triangle", 0.013, 0.045);
+      break;
+    case "bento6":
+      tone(ctx, 660, 660, 0.12, "sine", 0.025);
+      tone(ctx, 830, 830, 0.14, "sine", 0.024, 0.075);
+      tone(ctx, 1046, 1046, 0.17, "sine", 0.02, 0.15);
+      break;
+    case "dessert":
+      tone(ctx, 523, 523, 0.2, "sine", 0.028);
+      tone(ctx, 659, 659, 0.23, "sine", 0.026, 0.09);
+      tone(ctx, 784, 784, 0.32, "sine", 0.022, 0.18);
+      break;
+    case "toggle":
+      tone(ctx, 440, 660, 0.12, "triangle", 0.028);
+      break;
+    case "intro":
+      tone(ctx, 262, 262, 0.16, "sine", 0.026);
+      tone(ctx, 330, 330, 0.18, "sine", 0.026, 0.10);
+      tone(ctx, 392, 392, 0.20, "sine", 0.028, 0.20);
+      tone(ctx, 523, 523, 0.30, "triangle", 0.032, 0.31);
+      noise(ctx, 0.08, 0.014, 0.23, 1500);
+      break;
+    default:
+      tone(ctx, 280, 340, 0.07, "triangle", 0.022);
+  }
+}
+
+function updateSoundButton() {
+  if (!soundToggle) return;
+  soundToggle.textContent = soundEnabled ? "🔊 Sound On" : "🔇 Sound Off";
+  soundToggle.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
+  soundToggle.classList.toggle("muted", !soundEnabled);
+}
+
+function navigationSound(defaultSound, targetIndex) {
+  return visibleSlides[targetIndex]?.type === "closing" ? "dessert" : defaultSound;
+}
+
+const navIcons = ["🏠", "📋", "✅", "🛡️", "📡", "🧰", "💻", "🌐", "🧾", "🎯", "🍰"];
+
+const bentoShortcuts = [
+  { number: "1", title: "Today's Specials", sub: "October overview", target: 1, icon: "📋", className: "food-teriyaki" },
+  { number: "2", title: "Served", sub: "Completed this month", target: 2, icon: "✅", className: "food-rice" },
+  { number: "3", title: "On the Stove", sub: "Connectivity", target: 4, icon: "📡", className: "food-greens" },
+  { number: "4", title: "Kitchen Check", sub: "Maintenance", target: 5, icon: "🧰", className: "food-fried" },
+  { number: "5", title: "Cooking Next", sub: "Systems & website", target: 6, icon: "💻", className: "food-noodles" },
+  { number: "6", title: "Website Launch", sub: "Before 15 November", target: 7, icon: "🌐", className: "food-fruit" }
+];
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function badge(status, tone = "neutral") {
+  return `<span class="badge ${escapeHtml(tone)}">${escapeHtml(status)}</span>`;
+}
+
+function renderList(items = []) {
+  return `<ul class="clean-list">${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function foodIcon(text = "", index = 0) {
+  const lower = String(text).toLowerCase();
+  if (lower.includes("email") || lower.includes("spam")) return "🥬";
+  if (lower.includes("internet") || lower.includes("connect")) return "🍜";
+  if (lower.includes("antivirus") || lower.includes("security")) return "🥦";
+  if (lower.includes("printer") || lower.includes("toner")) return "🍙";
+  if (lower.includes("subscription") || lower.includes("renewal")) return "🍓";
+  if (lower.includes("maintenance") || lower.includes("warranty")) return "🥕";
+  if (lower.includes("system") || lower.includes("odoo") || lower.includes("pms")) return "🥟";
+  if (lower.includes("completed") || lower.includes("upgrade")) return "🍗";
+  const icons = ["🍗", "🍙", "🥦", "🍤", "🍜", "🍓", "🥕", "🥟"];
+  return icons[index % icons.length];
+}
+
+function renderHeader(slide) {
+  return `
+    <header class="slide-header">
+      <div class="paper-label">${escapeHtml(slide.label)}</div>
+      <h2>${escapeHtml(slide.title)}</h2>
+      <p>${escapeHtml(slide.subtitle)}</p>
+    </header>`;
+}
+
+function renderHero(slide) {
+  const meetingLine = (deckData.reportDate || "").replace("HOD Meeting: ", "");
+  return `
+    <article class="slide hero-bento">
+      <div class="kitchen-hero">
+        <div class="kitchen-copy">
+          <div class="open-sign">OPEN · HOD SERVICE</div>
+          <p class="hero-kicker">Mountain Torq IT Kitchen</p>
+          <h2>IT UPDATE</h2>
+          <h3>Fresh October updates, served for Management.</h3>
+          <div class="meeting-date">${escapeHtml(meetingLine)}</div>
+          <div class="chef-note">👨‍🍳 <strong>Chef's note:</strong> completed work first, pending orders next.</div>
+        </div>
+        <div class="special-board">
+          <div class="board-pin">TODAY'S MENU</div>
+          ${bentoShortcuts.map(item => `
+            <button type="button" class="menu-shortcut ${item.className}" data-jump="${item.target}" data-sound="bento${item.number}">
+              <span class="menu-number">${item.number}</span>
+              <span class="menu-icon">${item.icon}</span>
+              <span class="menu-copy"><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.sub)}</small></span>
+              <span class="menu-arrow">→</span>
+            </button>
+          `).join("")}
+        </div>
+      </div>
+      <div class="hero-foot">
+        <span>🍽️ Pick a menu item to jump straight to that section.</span>
+        <span class="napkin-copy">STATUS: FRESH · CHECKED · READY TO SERVE</span>
+      </div>
+    </article>`;
+}
+
+function renderSummary(slide) {
+  return `
+    <article class="slide wood-board-slide">
+      ${renderHeader(slide)}
+      <div class="red-tray summary-tray">
+        ${(slide.stats || []).map((stat, index) => `
+          <section class="stat-food-card tone-${escapeHtml(stat.tone || "neutral")}">
+            <div class="stat-food">${foodIcon(stat.label, index)}</div>
+            <strong>${escapeHtml(stat.value)}</strong>
+            <span>${escapeHtml(stat.label)}</span>
+          </section>
+        `).join("")}
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-pin">📌</div>
+        <h3>Today’s Specials</h3>
+        ${renderList(slide.highlights)}
+      </div>
+    </article>`;
+}
+
+function renderCards(slide) {
+  return `
+    <article class="slide wood-board-slide">
+      ${renderHeader(slide)}
+      <div class="food-card-grid ${slide.cards?.length === 1 ? "single" : ""}">
+        ${(slide.cards || []).map((card, index) => `
+          <section class="food-card">
+            <div class="food-card-top">
+              <div class="food-icon-bowl">${foodIcon(card.title, index)}</div>
+              <div class="food-card-title">
+                <h3>${escapeHtml(card.title)}</h3>
+                ${badge(card.status, card.tone)}
+              </div>
+            </div>
+            <div class="food-card-body">
+              ${renderList(card.details)}
+            </div>
+            <div class="card-corner">✦</div>
+          </section>
+        `).join("")}
+      </div>
+    </article>`;
+}
+
+function renderTable(slide) {
+  return `
+    <article class="slide wood-board-slide">
+      ${renderHeader(slide)}
+      <div class="menu-table-wrap">
+        <div class="menu-table-title">🧾 Kitchen Register</div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr>${(slide.columns || []).map(col => `<th>${escapeHtml(col)}</th>`).join("")}</tr></thead>
+            <tbody>
+              ${(slide.rows || []).map((row, rowIndex) => `
+                <tr>
+                  ${row.map((cell, cellIndex) => `<td>${cellIndex === 0 ? `<span class="row-food">${foodIcon(cell, rowIndex)}</span>` : ""}${escapeHtml(cell)}</td>`).join("")}
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderTimeline(slide) {
+  return `
+    <article class="slide wood-board-slide">
+      ${renderHeader(slide)}
+      <div class="serving-line">
+        ${(slide.items || []).map((item, index) => `
+          <section class="serving-step">
+            <div class="serving-food">${foodIcon(item.title, index)}</div>
+            <div class="serving-number">${index + 1}</div>
+            <div class="serving-copy">
+              <div class="timeline-title-row">
+                <h3>${escapeHtml(item.title)}</h3>
+                ${badge(item.tag, "info")}
+              </div>
+              <p>${escapeHtml(item.details)}</p>
+            </div>
+          </section>
+        `).join("")}
+      </div>
+    </article>`;
+}
+
+function renderNextActions(slide) {
+  return `
+    <article class="slide wood-board-slide">
+      ${renderHeader(slide)}
+      <div class="ticket-grid">
+        ${(slide.actions || []).map((action, index) => `
+          <section class="order-ticket">
+            <div class="ticket-number">${String(index + 1).padStart(2, "0")}</div>
+            <div class="ticket-content">
+              <h3>${escapeHtml(action.title)}</h3>
+              <div class="ticket-meta">
+                <span>👨‍🍳 <strong>Owner</strong><br>${escapeHtml(action.owner)}</span>
+                <span>⏰ <strong>Target</strong><br>${escapeHtml(action.due)}</span>
+              </div>
+            </div>
+            ${badge(action.status, action.status === "Pending" ? "warning" : action.status === "Monitoring" ? "info" : action.status === "In Progress" ? "warning" : "success")}
+          </section>
+        `).join("")}
+      </div>
+    </article>`;
+}
+
+function renderClosing(slide) {
+  return `
+    <article class="slide closing-food-slide">
+      <div class="dessert-plate">🍰</div>
+      <p class="hero-kicker">Dessert is served</p>
+      <h2>${escapeHtml(slide.title)}</h2>
+      <p class="closing-subtitle">${escapeHtml(slide.subtitle)}</p>
+      <div class="closing-note">
+        <h3>Kitchen Notes</h3>
+        ${renderList(slide.notes)}
+      </div>
+      <div class="thank-you-sticker">Thank you! ☺</div>
+    </article>`;
+}
+
+function renderSlide() {
+  const slide = visibleSlides[currentIndex];
+  const renderers = {
+    hero: renderHero,
+    summary: renderSummary,
+    cards: renderCards,
+    table: renderTable,
+    timeline: renderTimeline,
+    nextActions: renderNextActions,
+    closing: renderClosing
+  };
+
+  stage.innerHTML = (renderers[slide.type] || renderCards)(slide);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  stage.scrollTop = 0;
+  currentSlide.textContent = String(currentIndex + 1);
+  totalSlides.textContent = String(visibleSlides.length);
+  progressBar.style.width = `${((currentIndex + 1) / visibleSlides.length) * 100}%`;
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex === visibleSlides.length - 1;
+
+  Array.from(nav.children).forEach((button, index) => {
+    button.classList.toggle("active", index === currentIndex);
+  });
+}
+
+function buildNav() {
+  deckTitleSide.textContent = deckData.title;
+  preparedBy.textContent = deckData.preparedBy;
+  reportDate.textContent = deckData.reportDate;
+  totalSlides.textContent = String(visibleSlides.length);
+
+  nav.innerHTML = visibleSlides.map((slide, index) => `
+    <button type="button" data-slide="${index}">
+      <span class="nav-food">${navIcons[index % navIcons.length]}</span>
+      <span class="nav-copy"><small>Dish ${String(index + 1).padStart(2, "0")}</small>${escapeHtml(slide.label || slide.title)}</span>
+    </button>`).join("");
+
+  nav.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-slide]");
+    if (!button) return;
+    const target = Number(button.dataset.slide);
+    playEffect(navigationSound("menu", target));
+    currentIndex = target;
+    renderSlide();
+  });
+}
+
+stage.addEventListener("click", (event) => {
+  const jump = event.target.closest("[data-jump]");
+  if (!jump) return;
+  const target = Number(jump.dataset.jump);
+  if (!Number.isFinite(target) || target < 0 || target >= visibleSlides.length) return;
+  playEffect(jump.dataset.sound || navigationSound("menu", target));
+  currentIndex = target;
+  renderSlide();
+});
+
+prevBtn.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    const target = currentIndex - 1;
+    playEffect(navigationSound("prev", target));
+    currentIndex = target;
+  }
+  renderSlide();
+});
+
+nextBtn.addEventListener("click", () => {
+  if (currentIndex < visibleSlides.length - 1) {
+    const target = currentIndex + 1;
+    playEffect(navigationSound("next", target));
+    currentIndex = target;
+  }
+  renderSlide();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+    if (currentIndex < visibleSlides.length - 1) {
+      const target = currentIndex + 1;
+      playEffect(navigationSound("next", target));
+      currentIndex = target;
+    }
+    renderSlide();
+  }
+  if (["ArrowLeft", "PageUp"].includes(event.key)) {
+    if (currentIndex > 0) {
+      const target = currentIndex - 1;
+      playEffect(navigationSound("prev", target));
+      currentIndex = target;
+    }
+    renderSlide();
+  }
+  if (event.key === "Home") {
+    playEffect("menu");
+    currentIndex = 0;
+    renderSlide();
+  }
+});
+
+toggleSidebar.addEventListener("click", () => {
+  playEffect("menu");
+  sidebar.classList.toggle("hidden");
+});
+
+soundToggle?.addEventListener("click", () => {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("hod-bento-sound", soundEnabled ? "on" : "off");
+  updateSoundButton();
+  if (soundEnabled) playEffect("toggle");
+});
+
+startPresentation?.addEventListener("click", () => {
+  getAudioContext();
+  playEffect("intro");
+  document.body.classList.add("presentation-started");
+  startScreen?.classList.add("is-leaving");
+
+  window.setTimeout(() => {
+    startScreen?.remove();
+    document.body.classList.remove("presentation-locked");
+  }, 850);
+});
+
+updateSoundButton();
+buildNav();
+renderSlide();
+
+  </script>
+</body>
+</html>
