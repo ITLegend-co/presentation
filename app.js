@@ -149,7 +149,7 @@ const bentoShortcuts = [
   { number: "3", title: "On the Stove", sub: "Connectivity", target: 4, icon: "📡", className: "food-greens" },
   { number: "4", title: "Kitchen Check", sub: "Maintenance", target: 5, icon: "🧰", className: "food-fried" },
   { number: "5", title: "Cooking Next", sub: "Systems & website", target: 6, icon: "💻", className: "food-noodles" },
-  { number: "6", title: "Next Orders", sub: "November actions", target: 9, icon: "🎯", className: "food-fruit" }
+  { number: "6", title: "Website Launch", sub: "Before 15 November", target: 7, icon: "🌐", className: "food-fruit" }
 ];
 
 function escapeHtml(value) {
