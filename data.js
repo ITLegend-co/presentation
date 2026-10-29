@@ -281,22 +281,6 @@ const deckData = {
       ]
     },
     {
-      type: "nextActions",
-      label: "Next Service",
-      title: "Management Attention & November Actions",
-      subtitle: "Priority IT work to carry forward after the 29 October HOD meeting.",
-      actions: [
-        { title: "Complete the remaining KK Office preventive maintenance: network, alarm and remaining computers", owner: "IT", due: "November 2026", status: "In Progress" },
-        { title: "Complete KP U Mobile monitoring and prepare the final connectivity recommendation", owner: "Adly", due: "7 November 2026", status: "Monitoring" },
-        { title: "Install, brief and test the KP Dispatcher PC / SmartPTT workflow", owner: "IT / Operations", due: "November 2026", status: "In Progress" },
-        { title: "Begin Accounts System development based on the agreed workflow", owner: "Adly", due: "11 November 2026", status: "Scheduled" },
-        { title: "Support company website launch and coordinate domain implementation with IPServerOne", owner: "Adly / IT", due: "Before 15 November 2026", status: "Scheduled" },
-        { title: "Continue MT Office VPN diagnosis for the external Error 809 / UDP 4500 path", owner: "Adly", due: "Ongoing", status: "In Progress" },
-        { title: "Continue IT Helpdesk development and reliability testing", owner: "Adly", due: "Ongoing", status: "In Progress" },
-        { title: "Continue monitoring reduced spam email volume and Trend Micro security status", owner: "IT", due: "Ongoing", status: "Monitoring" }
-      ]
-    },
-    {
       type: "closing",
       label: "Closing",
       title: "Kitchen Closed — IT Update Served",
