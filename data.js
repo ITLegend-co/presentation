@@ -33,9 +33,10 @@ const deckData = {
       ],
       highlights: [
         "PH and KP preventive maintenance are fully completed; KK Office is 60% completed.",
-        "PH backup internet has been installed and the PH team was briefed by Eizzat on when and how to use it.",
+        "PH backup internet has been installed and the HK Team was briefed by Eizzat on when and how to use it.",
         "During the KP monitoring period, U Mobile had 1 reported signal-loss outage while Unifi had 3 reported outages.",
         "Spam email reports have reduced compared with last month and remain under monitoring.",
+        "A PHP2Shell vulnerability review was completed for the main internal systems and relevant external services; no PHP dependency was identified in the reviewed internal GitHub systems.",
         "Info-Tech was successfully renewed; the next renewal date is 16 October 2027.",
         "The paid/full Odoo version will not proceed. The free version remains sufficient for the current internal reporting and payment-tracking requirement.",
         "Accounts System development is scheduled to begin on 11 November 2026.",
@@ -54,7 +55,7 @@ const deckData = {
           tone: "success",
           details: [
             "Backup internet has been installed at Pendant Hut.",
-            "Eizzat briefed the PH team on when the backup connection should be used and how to activate it.",
+            "Eizzat briefed the HK Team on when the backup connection should be used and how to activate it.",
             "The backup connection is now available for operational use when the main connection is unavailable."
           ]
         },
@@ -115,6 +116,18 @@ const deckData = {
             "No major Trend Micro security alert has been detected since the previous HOD meeting.",
             "Endpoint protection remains active.",
             "Continue routine security monitoring and scheduled checks."
+          ]
+        },
+        {
+          title: "PHP2Shell Vulnerability Review",
+          status: "Reviewed / Follow-Up",
+          tone: "success",
+          details: [
+            "The reviewed internal GitHub-hosted systems did not contain PHP files or Composer dependencies.",
+            "GitHub static hosting does not execute PHP, and the standard Odoo backend is Python-based rather than PHP-based.",
+            "IPServerOne confirmed that email-side patches had been applied.",
+            "SQL Payroll desktop / Firebird is not directly affected; PHP exposure for cloud / HRMS components remains subject to provider confirmation.",
+            "External software and hosting components that are not controlled internally will continue to be verified with the relevant vendors where required."
           ]
         },
         {
