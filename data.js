@@ -131,6 +131,18 @@ const deckData = {
           ]
         },
         {
+          title: "PHP2Shell Vulnerability Check",
+          status: "Review Ongoing",
+          tone: "warning",
+          details: [
+            "IPServerOne: Complete (safe). Relevant email-hosting PHP security updates have been applied; PHP 8.2.35 includes the listed CVE-2026-109618 and CVE-2026-109619 updates.",
+            "GitHub website hosting: Complete (safe). Static HTML, CSS and JavaScript hosting does not execute PHP.",
+            "Odoo: Complete (safe). The standard hosted POS is not expected to be directly affected because Odoo's backend uses Python rather than PHP.",
+            "ABSS: In Progress. ABSS advised there is no identified risk to end-users while its backend team continues reviewing affected backend services.",
+            "SQL: In Progress. SQL support advised that its system is not using PHP coding; further vendor confirmation remains under follow-up."
+          ]
+        },
+        {
           title: "General IT Support",
           status: "Ongoing",
           tone: "info",
